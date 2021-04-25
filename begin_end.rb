@@ -1,14 +1,16 @@
+# Lesson 1.2 Declaring a Variable, Comment Blocks and BEGIN and END Statments
+
 # Ruby program of BEGIN and END
-message1 = 'Hello world!'
-message2 = 'We have learnt how to declare a variable and BEGIN and END statement.'
+message1 = "Hello world!"
+message2 = "We have learnt how to declare a variable and BEGIN and END statement."
 puts message1
 puts message2
    
 END{
-   puts 'This is the end of this script.'
+   puts "This is the end of this script."
 }
 BEGIN{
-   puts 'Let\'s start the program!'
+   puts "Let\'s start the program!"
 }
 
 =begin
