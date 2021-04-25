@@ -54,3 +54,24 @@ puts "1 + 1 equals to #{1+1}."
 <br><br>
 Note that <b>#{}</b> only works in a string with double quotation, it will not calculate anything or pass any variable if <b>#{}</b> is put into a string with single quotation.
 
+### Lesson 4: Methods
+Functions are called <b>Methods</b> in Ruby. The syntax starts by <b>def</b> and end with <b>end</b>, like below:
+
+```
+# Method with no parameter
+def method_no_para
+puts "This method has no parameter"
+end
+
+# Method with 1 parameter
+def method_1para(var1)
+puts var1
+end
+
+# Method with 2+ parameters, with default values
+def method_2para(var1=1, var2=2)
+puts "We have received #{var1} and #{var2}"
+end
+```
+
+### Lesson 5: (Coming Soon...)
