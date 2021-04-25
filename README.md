@@ -4,7 +4,7 @@ Repository to store the scripts when I learn Ruby.
 ## Chapter 1: Very Basic Syntax
 This chapter is going to go over the very basic syntax in Ruby.
 
-### Lesson 1: Print statement
+### Lesson 1: Hello World!
 In Ruby, <b>puts</b> is the print statement. Same as <b>print</b> in Python.
 
 ### Lesson 2: Declaring a Variable, Comment Blocks and BEGIN and END Statments
@@ -28,9 +28,29 @@ This is a comment block
 BEGIN and END statements are statements that have the program to do either in the begining or the end of the program, regardless where you place the statement in the script. The syntax starts with either <b>BEGIN</b> or <b>END</b> and followed by <b>{}</b>, which stores the commands like Java. For example:
 ```
 END{
-   puts 'End of this script.'
+   puts "End of this script.""
 }
 BEGIN{
-   puts 'Begining of this script'
+   puts "Begining of this script"
 }
 ```
+
+### Lesson 3: Prints
+<b>puts</b> is a printing function in Ruby, the same as <b>print()</b> in Python or <b>System.out.println()</b> in Java. <b>print</b> also prints in Ruby but it does not skip to next line after <b>print</b> is executed. In Ruby, there is no need to wrap the string with () for the printing strings. To print a variable in a string or a math calculating, wrap the variable or math calculation with <b>#{}</b>. For example:
+
+```
+put "To print a string"
+print "To print a string without skipping a line"
+
+# To print variable or math calculation in a string
+apple = 3
+puts "There are #{apple} apples"
+# It will print: There are 3 apples
+
+puts "1 + 1 equals to #{1+1}."
+# It will print: 1 + 1 equals to 2.
+```
+
+<br><br>
+Note that <b>#{}</b> only works in a string with double quotation, it will not calculate anything or pass any variable if <b>#{}</b> is put into a string with single quotation.
+
