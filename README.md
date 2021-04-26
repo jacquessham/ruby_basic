@@ -72,6 +72,97 @@ end
 def method_2para(var1=1, var2=2)
 puts "We have received #{var1} and #{var2}"
 end
+
+# Method to return object
+def method_return
+return 1
+end
+
+# Method to return more than 1 object
+def method_return
+i = 1
+j = 2
+return i,j
+end
 ```
 
-### Lesson 5: (Coming Soon...)
+### Lesson 5: Loops & If-else Statement
+There are 4 kinds of loops in Ruby:
+<ul>
+	<li>While Loop</li>
+	<li>For Loop</li>
+	<li>Do..while Loop</li>
+	<li>Until Loop</li>
+</ul>
+
+<br><br>
+And will also going over the following function:
+<ul>
+	<li>If-else Statement</li>
+	<li>Case Statement</li>
+</ul>
+
+#### While Loop
+```
+curr = 0
+while curr < 6 do
+	# Do something
+	curr += 1
+end
+
+while true do
+	# Do something
+	curr += 1
+	break if curr > 10
+end
+```
+
+#### For Loop
+```
+for n in 0..10 do
+	# Do something
+end
+
+arr = ['a','b','c']
+for ch in arr do
+	# Do something
+end
+```
+
+#### Do..while Loop
+```
+loop do
+	# Do something
+	break if # Something
+end
+```
+
+#### Until Loop
+```
+num = 0
+until num == 5 do
+	puts num+1
+	num += 1
+end
+```
+
+Note: In the above, it will print 0,1,2,3,4
+
+#### If-else Statement
+```
+if (condition) then (statement)
+elsif (condition) then(statement)
+else (statement)
+end
+```
+
+#### Case Statement
+```
+case
+	when (condition) then (statement)
+	when (condition) then (statement)
+	else (statement)
+end
+```
+
+### Lesson 6: (Coming Soon...)
