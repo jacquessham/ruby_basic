@@ -79,7 +79,7 @@ return 1
 end
 
 # Method to return more than 1 object
-def method_return
+def method_2returns
 i = 1
 j = 2
 return i,j
