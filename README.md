@@ -14,7 +14,7 @@ This chapter is going to go over the very basic syntax in Ruby. This chapter goi
 </ul>
 
 <br>
-The scripts may find in the [Chapter 1 folder](/ch1)
+The scripts may find in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1">Chapter 1 folder</a>
 
 ## Chapter 2: Exercies
 Coming Soon...
