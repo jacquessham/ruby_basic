@@ -7,6 +7,7 @@ END{puts "This concludes Lesson 7"}
 
 # Define a class (Parent class)
 class Student
+	# Print this when program read class code clock
 	puts "Define a parent class - Student"
 
 	def initialize(student_name, age, gender)
@@ -100,3 +101,27 @@ grace = Student.new("Grace", 17, "M")
 puts "The gender of #{grace.get_name} is #{grace.gender}"
 grace.gender = "W"
 puts "Correction, it is actually #{grace.gender}"
+
+=begin
+Expected Output:
+This is Lesson 7, we are going over class in Ruby
+Define a parent class - Student
+Define a child class - Primary_school_student
+Define a child class - Secondary_school_student
+------------------------------------
+The student name is Wilson, 10 years old
+This student is 10 years old
+This student has 1 apples and 2 oranges
+This student has 1 apples and 0 oranges
+This student has 0 apples and 0 oranges
+The new name is Fred and revised age is 12
+------------------------------------
+The student name is Acca, 18 years old
+This student is 1 years away to graduate
+Acca is  years old
+------------------------------------
+The student name is Grace, 17 years old
+The gender of Grace is M
+Correction, it is actually W
+This concludes Lesson 7
+=end
