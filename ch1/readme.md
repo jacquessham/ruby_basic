@@ -287,4 +287,23 @@ The function <b>super</b> comes with different syntax format:
 #### use_class.rb
 This file has 1 parent class <b>Student</b>, along with 2 subclasses <b>Primary_school_student</b> and <b>Secondary_school_student</b>. The parent class consists of 3 attributes, <i>student_name</i>, <i>age</i>, and <i>gender</i> along with all setter and getter functions. It has two functions: <i>print_age</i> and <i>fruits</i>. <b>Primary_school_student</b> has a method to override <i>fruits</i> and <b>Secondary_school_student</b> has one to override <i>print_age</i>.
 
-### Lesson 8: (Coming Soon...)
+### Lesson 8: Inputs and Outputs
+Files for this lesson: <i>gets.rb</i> and <i>first_file.txt</i>.<br>
+In the end of the lesson, you will receive <i>second_file.txt</i>.
+<br><br>
+Here is the code to ask users for input:
+```
+puts "Ask user for input"
+user_input = gets.chomp
+```
+
+<br>
+Use <b>gets</b> to receive input from users, <b>chomp</b> removes all separtors.
+<br><br>
+To open to read/write a file: <b>File.new(filename, mode)</b>
+<br>
+In read mode: <b>filename.sysread(n)</b> reads the first <b>n</b> characters in the file filename. <b>IO.readlines(filename)</b> reads all lines in filename and store all lines in string in an array. 
+<br><br>
+In write mode: <b>filename.syswrite()</b> writes string in filename.
+
+### Lesson 9: (Coming Soon...)
