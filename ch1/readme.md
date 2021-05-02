@@ -306,4 +306,18 @@ In read mode: <b>filename.sysread(n)</b> reads the first <b>n</b> characters in 
 <br><br>
 In write mode: <b>filename.syswrite()</b> writes string in filename.
 
-### Lesson 9: (Coming Soon...)
+### Lesson 9: Try statement
+Files for this lesson: <i>try_rescue.rb</i> and <i>first_file.txt</i>
+
+```
+begin  # Same as try in Python/Java
+    # Do something
+    raise Exception # Or raise "Message"
+rescue # Same as except in Python/ catch in Java
+    # Do something, occurs when an error occur
+ensure # Execute regardless an error occur
+    # Do something
+end 
+```
+
+### Lesson 10: (Coming Soon...)
