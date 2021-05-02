@@ -14,6 +14,7 @@ df = Daru::DataFrame.new(
 puts "Print the data frame"
 puts df.inspect
 
+# Conditions
 puts "Print the data frame where student is 19 years old"
 puts df.where(df[:age].eq(19)).inspect # Even int cannot use ==
 
@@ -30,6 +31,7 @@ puts "Sort the data frame by Student's name in alphabetical order"
 puts df.sort([:student], ascending:[true]).inspect
 puts df.inspect
 
+# IOs
 puts "Now import students.csv"
 begin
 	students = Daru::DataFrame.from_csv("students.csv", headers: true)
@@ -51,7 +53,7 @@ rescue
 end
 
 puts "Now let's look which students have a girlfriend"
-infos = students.join(gf, how: :inner, on: [:student])
+infos = students.join(gf, how: :outer, on: [:student])
 puts infos.inspect
 
 puts "And save the result as infos.csv"
@@ -60,3 +62,28 @@ begin
 rescue
 	puts "Not able to save the result..."
 end
+
+# Arithmetics
+prods = Daru::DataFrame.new(
+		product:["Apples","Oranges","Peers"],
+		price:[80,50,90],
+		cost:[60,40,75]
+	)
+prods[:gross] = prods[:price] + prods[:cost]
+prods[:margin] = (prods[:price] - prods[:cost]*1.0)/prods[:price]
+puts prods.inspect
+
+# Aggregation
+prods = Daru::DataFrame.new(
+		category:["Apple","Apple","Orange"],
+		productname:["Fuji","Granny Smith","Sunkits"],
+		price:[80,95,90],
+		cost:[60,80,75]
+	)
+
+puts "How many products per category:"
+puts prods.group_by([:category]).count[:productname].inspect
+puts "Mean of the price:"
+puts prods.group_by([:category]).mean[:price].inspect
+puts "Standard Deviation of the price:"
+puts prods.group_by([:category]).std.inspect

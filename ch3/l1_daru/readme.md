@@ -28,6 +28,8 @@ Below is the list of syntax to select in different dimension:
 	<li>df[:col1, :col2] - Select multiple columns from the data frame</li>
 	<li>df.row[0] - Select 1 row from data frame (Selecting 1st row)</li>
 	<li>df.row[0..2] - Select 2 rows from data frame, inclusively (Selecting 1st, 2nd, and 3rd row)</li>
+	<li>df.first(n) - The first n rows of the data frame</li>
+	<li>df.last(n) - The last n rows of the data frame</li>
 </ul>
 
 ## Filtering
@@ -124,6 +126,7 @@ df2 = Daru::DataFrame.new(col1:['d','e'],col2:[8,9])
 
 df1.concat(df2)
 ```
+
 ## Joins
 To perform SQL style joins, use below syntax similar to Pandas:
 ```
@@ -140,6 +143,57 @@ Note that the <b>on</b> parameter only takes array, even with 1 column. The belo
 	<li>:right</li>
 	<li>:outer</li>
 </ul>
+
+## Arithmetics among Columns
+To take the difference or sum between two columns, simply add/subtract between 2 columns:
+```
+# df[col1] and df[col2] are 2 float columns
+df[sum_col1_col2] = df[col1] + df[col2]
+df[diff_col1_col2] = df[col1] - df[col2]
+# So do multiple and divide
+df[prod_col1_col2] = df[col1] * df[col2]
+df[div_col1_col2] = df[col1] / df[col2]
+```
+
+## Aggregations
+Use the following syntax to perform a group by sum:
+```
+df.group_by([:col1]).sum
+```
+
+<br>
+There are more operations you may use:
+<ul>
+	<li>correlation</li>
+	<li>count</li>
+	<li>covariance</li>
+	<li>cumsum</li>
+	<li>describe (Mean, standard deviation, count, min, max at the same time)</li>
+	<li>ema (Exponential moving average)</li>
+	<li>min</li>
+	<li>max</li>
+	<li>mean</li>
+	<li>median</li>
+	<li>mode</li>
+	<li>std</li>
+	<li>variance_sample</li>
+	<li>percent_change</li>
+	<li>rolling_count</li>
+	<li>rolling_min</li>
+	<li>rolling_max</li>
+	<li>rolling_count</li>
+	<li>rolling_mean</li>
+	<li>rolling_median</li>
+	<li>rolling_std</li>
+	<li>rolling_variance</li>
+	<li>standardize</li>
+</ul>
+
+<br>
+<b>rolling_</b> means look back n rows and perform the given operation. For example, <b>df.rolling_mean(3)</b> means taking a mean between this row and 2 previous rows, inclusively.
+
+<br><br>
+<b>.lag(n)</b> means taking entry n rows prior. For example, <b>df.lag(1)</b> means taking last row of entry for every row entry in df.
 
 ## Reference
 Andrew Kane's <i>Daru: Pandas for Ruby</i>, <a href="https://ankane.org/daru">https://ankane.org/daru</a>
