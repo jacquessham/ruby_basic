@@ -1,0 +1,54 @@
+category,productname,price
+vegetable,tomato,0.99
+vegetable,corn,0.49
+fruit,apple,0.39
+fruit,orange,0.54
+fruit,peer,1.49
+fruit,banana,0.29
+vegetable,kale,3.49
+vegetable,lettuce,1.49
+vegetable,spring mix,4.49
+vegetable,cabbage,0.39
+fruit,strawberry,3.39
+fruit,blueberry,4,49
+bakery,bread,3.45
+meat,beef,4.49
+meat,pork,3.39
+meat,chicken,2.29
+bakery,danish,5.59
+bakery,muffins,4.49
+beverage,apple juice,3.49
+beverage,orange juice,4.49
+beverage,distilled water,2.29
+beverage,sparkling water,3.49
+frozen food,ice cream,3.49
+frozen food,pizza,9.99
+frozen food,corn dog,4.49
+frozen food,hot pockets,8.99
+alcoholic beverage,beer,14.49
+alcoholic beverage,wine,19.99
+alcoholic beverage,whiskey,29.99
+seafood,fish,12.99
+seafood,shrimp,9.99
+seafood,crab,13.99
+seafood,lobster,29.99
+seafood,squid,8.99
+dairy,whole fat milk,4.49
+dairy,reduced fat milk,4.49
+dairy,fat free milk,4.49
+dairy,cheese,5.49
+dairy,cream cheese,3.39
+dairy,butter,2.49
+dairy,sour cream,3.49
+eggs,chicken eggs,3.49
+eggs,duck eggs,5.49
+meat,duck,12.99
+cleaning supply,tissue,4.49
+cleaning supply,detergent,13.99
+cleaning supply,fabric softener,12.99
+personal care,shampoo,4.49
+personal care,conditioner,4.39
+personal care,toothbrush,0.99
+personal care,toothpaste,2.29
+personal care,soap,0.49
+personal care,mouthwash,7.99
