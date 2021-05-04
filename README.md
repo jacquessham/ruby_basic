@@ -10,6 +10,10 @@ This chapter is going to go over the very basic syntax in Ruby. This chapter goi
 	<li>If-else Statement</li>
 	<li>Array</li>
 	<li>Class</li>
+	<li>Inputs and Outputs</li>
+	<li>Try statement</li>
+	<li></li>
+	<li></li>
 	<li></li>
 </ul>
 
@@ -26,7 +30,6 @@ This chapter is an exercise time to practice the Ruby syntax learnt in Chapter 1
 	<li>Craps</li>
 	<li>MyArray</li>
 </ul>
-T
 
 <br>
 The scripts may find in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2">Chapter 2 folder</a>
