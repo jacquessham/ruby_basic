@@ -40,10 +40,10 @@ df.where(df[:col1].eq('a')) # .eq() is a comparator method, regardless of data t
 ```
 In Daru, it uses the below syntax for comparator method, regardless of data type (Even integer/float are using the below Syntax):
 <table>
-	<th>
-		<td>Comparator Method</td>
-		<td>Functionality</td>
-	</th>
+	<tr>
+		<th>Comparator Method</th>
+		<th>Functionality</th>
+	</tr>
 	<tr>
 		<td>eq</td>
 		<td>==</td>
@@ -76,7 +76,7 @@ In Daru, it uses the below syntax for comparator method, regardless of data type
 
 ### Multiple Conditions
 Sometimes you may want to apply more than 1 condition to the filter.
-To do so, use <b>&</b> for <i>and</i> and <b>|<b> for <i>or</i>. For example:
+To do so, use <b>&</b> for <i>and</i> and <b>|</b> for <i>or</i>. For example:
 
 ```
 df.where(df[:col1].eq('a') & df[:col2].eq(1)) # Both conditions
@@ -101,8 +101,8 @@ Note that the sort's parameters only take array, even you are only sorting 1 col
 Use the below syntax to import a CSV file to a data frame or export a data frame to a CSV file:
 
 ```
-df = Daru::DataFrame.from_csv(<filename.csv>, header: true)
-df.write_csv(<filename.csv>, header: true)
+df = Daru::DataFrame.from_csv(<filename.csv>, headers: true)
+df.write_csv(<filename.csv>)
 ```
 
 <br>
