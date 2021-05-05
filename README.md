@@ -12,7 +12,7 @@ This chapter is going to go over the very basic syntax in Ruby. This chapter goi
 	<li>Class</li>
 	<li>Inputs and Outputs</li>
 	<li>Try statement</li>
-	<li></li>
+	<li>Hash</li>
 	<li></li>
 	<li></li>
 </ul>
@@ -39,6 +39,7 @@ This chapter is going to go over useful packages that I may use in Ruby, includi
 <ul>
 	<li>Daru (Pandas in Ruby)</li>
 	<li>Rover (Pandas in Ruby)</li>
+	<li>Pycall</li>
 </ul>
 <br>
 The notes and scripts may find in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch3">Chapter 3 folder</a>

@@ -150,6 +150,7 @@ To take the difference or sum between two columns, simply add/subtract between 2
 # df[col1] and df[col2] are 2 float columns
 df[sum_col1_col2] = df[col1] + df[col2]
 df[diff_col1_col2] = df[col1] - df[col2]
+
 # So do multiple and divide
 df[prod_col1_col2] = df[col1] * df[col2]
 df[div_col1_col2] = df[col1] / df[col2]

@@ -2,10 +2,10 @@
 This chapter is going to go over useful packages that I may use in Ruby.
 
 ## Lesson 1: Daru (Pandas in Ruby)
-Daru is one of the gem in Ruby that is similar to Pandas, click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch3/l1_daru"></a> for more detail.
+Daru is one of the gem in Ruby that is similar to Pandas, click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch3/l1_daru">here</a> for more detail.
 
 ## Lesson 2: Rover (Pandas in Ruby)
-Rover is one of the gem in Ruby that is similar to Pandas, click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch3/l2_rover"></a> for more detail.
+Rover is one of the gem in Ruby that is similar to Pandas, click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch3/l2_rover">here</a> for more detail.
 
 ## Lesson 3: Pycall
 Pycall can call Python function from Ruby. Coming Soon...
