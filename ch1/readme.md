@@ -1,13 +1,13 @@
 # Chapter 1: Very Basic Syntax
 
 
-### Lesson 1: Hello World!
+## Lesson 1: Hello World!
 File for this lesson: <i>helloworld.rb</i>
 <br><br>
 In Ruby, <b>puts</b> is the print statement. Same as <b>print</b> in Python.
 
 
-### Lesson 2: Declaring a Variable, Comment Blocks and BEGIN and END Statments
+## Lesson 2: Declaring a Variable, Comment Blocks and BEGIN and END Statments
 File for this lesson: <i>begin_end.rb</i>
 <br><br>
 Declaring a variable in Ruby is the same as you do in Python, for example:
@@ -37,7 +37,7 @@ BEGIN{
 }
 ```
 
-### Lesson 3: Print
+## Lesson 3: Print
 File for this lesson: <i>printing.rb</i>
 <br><br>
 <b>puts</b> is a printing function in Ruby, the same as <b>print()</b> in Python or <b>System.out.println()</b> in Java. <b>print</b> also prints in Ruby but it does not skip to next line after <b>print</b> is executed. In Ruby, there is no need to wrap the string with () for the printing strings. To print a variable in a string or a math calculating, wrap the variable or math calculation with <b>#{}</b>. For example:
@@ -58,7 +58,7 @@ puts "1 + 1 equals to #{1+1}."
 <br><br>
 Note that <b>#{}</b> only works in a string with double quotation, it will not calculate anything or pass any variable if <b>#{}</b> is put into a string with single quotation.
 
-### Lesson 4: Method
+## Lesson 4: Method
 File for this lesson: <i>use_methods.rb</i>
 <br><br>
 Functions are called <b>Methods</b> in Ruby. The syntax starts by <b>def</b> and end with <b>end</b>, like below:
@@ -92,7 +92,7 @@ return i,j
 end
 ```
 
-### Lesson 5: Loops & If-else Statement
+## Lesson 5: Loops & If-else Statement
 File for this lesson: <i>loops.rb</i>
 <br><br>
 There are 4 kinds of loops in Ruby:
@@ -110,7 +110,7 @@ And will also going over the following function:
 	<li>Case Statement</li>
 </ul>
 
-#### While Loop
+### While Loop
 ```
 curr = 0
 while curr < 6 do
@@ -125,7 +125,7 @@ while true do
 end
 ```
 
-#### For Loop
+### For Loop
 ```
 for n in 0..10 do
 	# Do something
@@ -137,7 +137,7 @@ for ch in arr do
 end
 ```
 
-#### Do..while Loop
+### Do..while Loop
 ```
 loop do
 	# Do something
@@ -145,7 +145,7 @@ loop do
 end
 ```
 
-#### Until Loop
+### Until Loop
 ```
 num = 0
 until num == 5 do
@@ -156,7 +156,7 @@ end
 
 Note: In the above, it will print 0,1,2,3,4
 
-#### If-else Statement
+### If-else Statement
 ```
 if (condition) then (statement)
 elsif (condition) then(statement)
@@ -164,7 +164,7 @@ else (statement)
 end
 ```
 
-#### Case Statement
+### Case Statement
 ```
 case
 	when (condition) then (statement)
@@ -173,17 +173,17 @@ case
 end
 ```
 
-### Lesson 6: Array
+## Lesson 6: Array
 File for this lesson: <i>use_array.rb</i>
 <br><br>
-#### Declaring an Array
+### Declaring an Array
 These are the style of syntax to declare arrays in Ruby. Arrays are 0-based and do not have a fixed size like Java.
 <ul>
 	<li>Python style: arr = [1,2,3]</li>
 	<li>Java style: arr2 = Array.new(n) <- Create nil n times</li>
 </ul>
 
-#### Selecting/AddingEditing elements
+### Selecting/AddingEditing elements
 There are a couple ways to select element(s) in an array:
 <ul>
 	<li>arr[0] - Select 1 element at position 0 of arr</li>
@@ -206,7 +206,7 @@ Or to edit an element in an array, declare the new value to the array and its po
 arr[0] = "apple"
 ```
 
-#### Array Functions
+### Array Functions
 <ol>
 	<li>There are 2 ways to obtain the size of an array, use the functions: <i>.length</i> and <i>.size</i>.</li>
 	<li>arr1 + arr2 - Append the elements in arr2 to the end of arr1</li>
@@ -229,7 +229,7 @@ arr[0] = "apple"
 8. arr.transpose
 ```
 
-### Lesson 7: Class
+## Lesson 7: Class
 File for this lesson: <i>use_class.rb</i>
 <br><br>
 This is how a class is defined:
@@ -284,10 +284,10 @@ The function <b>super</b> comes with different syntax format:
 	<li><b>super()</b> means passing nothing to parent method</li>
 </ul>
 
-#### use_class.rb
+### use_class.rb
 This file has 1 parent class <b>Student</b>, along with 2 subclasses <b>Primary_school_student</b> and <b>Secondary_school_student</b>. The parent class consists of 3 attributes, <i>student_name</i>, <i>age</i>, and <i>gender</i> along with all setter and getter functions. It has two functions: <i>print_age</i> and <i>fruits</i>. <b>Primary_school_student</b> has a method to override <i>fruits</i> and <b>Secondary_school_student</b> has one to override <i>print_age</i>.
 
-### Lesson 8: Inputs and Outputs
+## Lesson 8: Inputs and Outputs
 Files for this lesson: <i>gets.rb</i> and <i>first_file.txt</i>.<br>
 In the end of the lesson, you will receive <i>second_file.txt</i>.
 <br><br>
@@ -306,7 +306,7 @@ In read mode: <b>filename.sysread(n)</b> reads the first <b>n</b> characters in 
 <br><br>
 In write mode: <b>filename.syswrite()</b> writes string in filename.
 
-### Lesson 9: Try statement
+## Lesson 9: Try statement
 Files for this lesson: <i>try_rescue.rb</i> and <i>first_file.txt</i>
 
 ```
@@ -320,4 +320,27 @@ ensure # Execute regardless an error occur
 end 
 ```
 
-### Lesson 10: (Coming Soon...)
+## Lesson 10: Hash
+Hash is the Ruby version of dictionary in Python. File for this lesson: <i>try_hash.rb</i>
+<br>
+<br>
+```
+# Declare new empty hash
+mydict = Hash.new
+
+# Hard code new hash with keys and value
+mydict = Hash["k1" => 1, "k2" => 2]
+
+# Add new key and values into hash
+mydict.store("k3", 3)
+# Or
+mydict["k3"] = 3
+
+# Obtain keys in array from hash
+keys_arr = mydict.keys
+
+# Obtain value of k1 from hash
+v1 = mydict['k1']
+```
+
+## Lesson 11: (Coming Soon...)
