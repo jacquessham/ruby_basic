@@ -1,5 +1,5 @@
-name:Acca's Supermarket
+store_name:Acca's Supermarket
 address:370 King's Road, North Point, CA 90000
-base delivery fee:9.99
-minimum delivery:35
+base_delivery_fee:9.99
+minimum_delivery:35
 tax:0.0925
