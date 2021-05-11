@@ -306,7 +306,7 @@ In read mode: <b>filename.sysread(n)</b> reads the first <b>n</b> characters in 
 <br><br>
 In write mode: <b>filename.syswrite()</b> writes string in filename.
 
-## Lesson 9: Loading data (CSV, JSON)
+## Lesson 9: Loading and Saving Data for Specific Format (CSV, JSON)
 Files for this lesson: <i>gets_v2.rb</i>.<br>
 In the end of the lesson, you will receive <i>numbers.csv</i> and <i>numbers.json</i>.
 <br><br>

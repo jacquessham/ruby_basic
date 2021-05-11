@@ -1,9 +1,9 @@
-# Lesson 1.9 Try statement
+# Lesson 1.11 Try statement
 
 
 # Begin and end statment
-BEGIN{puts"This is Lesson 9, we are going over try statement in Ruby"}
-END{puts"This concludes Lesson 9"}
+BEGIN{puts"This is Lesson 11, we are going over try statement in Ruby"}
+END{puts"This concludes Lesson 11"}
 
 # Let's try to open an textfile which does not exist, then ask user to enter
 # the correct filename, use first_file.txt for example

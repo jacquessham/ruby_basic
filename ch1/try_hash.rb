@@ -1,9 +1,9 @@
-# Lesson 1.10 Hash
+# Lesson 1.12 Hash
 
 
 # Begin and end statment
-BEGIN{puts"This is Lesson 10, we are going over try hash in Ruby"}
-END{puts"This concludes Lesson 10"}
+BEGIN{puts"This is Lesson 12, we are going to build hash in Ruby"}
+END{puts"This concludes Lesson 12"}
 
 # Hard code to declare a new hash
 mydict = Hash["k1" => 1, "k2" => 2]

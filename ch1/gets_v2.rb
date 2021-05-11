@@ -1,6 +1,9 @@
+# Lesson 1.9 Loading and Saving Data for Specific Format
 require 'csv'
 require 'json'
 
+BEGIN{puts "This is Lesson 9, we are going Loading and Saving Data for Specific Format in Ruby"}
+END{puts "This concludes Lesson 9"}
 # Write a csv file first
 puts "Now saving a csv file..."
 CSV.open("numbers.csv","w") do |csv_file|
