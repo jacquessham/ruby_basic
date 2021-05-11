@@ -306,7 +306,13 @@ In read mode: <b>filename.sysread(n)</b> reads the first <b>n</b> characters in 
 <br><br>
 In write mode: <b>filename.syswrite()</b> writes string in filename.
 
-## Lesson 9: Try statement
+## Lesson 9: Loading data (CSV, JSON)
+Files for this lesson: <i>gets_v2.rb</i>.<br>
+In the end of the lesson, you will receive <i>numbers.csv</i> and <i>numbers.json</i>.
+<br><br>
+(Coming Soon...)
+
+## Lesson 10: Try statement
 Files for this lesson: <i>try_rescue.rb</i> and <i>first_file.txt</i>
 
 ```
@@ -320,7 +326,7 @@ ensure # Execute regardless an error occur
 end 
 ```
 
-## Lesson 10: Hash
+## Lesson 11: Hash
 Hash is the Ruby version of dictionary in Python. File for this lesson: <i>try_hash.rb</i>
 <br>
 <br>
@@ -343,4 +349,4 @@ keys_arr = mydict.keys
 v1 = mydict['k1']
 ```
 
-## Lesson 11: (Coming Soon...)
+## Lesson 12: (Coming Soon...)
