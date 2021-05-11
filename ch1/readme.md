@@ -310,9 +310,26 @@ In write mode: <b>filename.syswrite()</b> writes string in filename.
 Files for this lesson: <i>gets_v2.rb</i>.<br>
 In the end of the lesson, you will receive <i>numbers.csv</i> and <i>numbers.json</i>.
 <br><br>
+Packages required:
+<ul>
+	<li>csv</li>
+	<li>json</li>
+</ul>
+<br><br>
 (Coming Soon...)
 
-## Lesson 10: Try statement
+## Lesson 10: Files and Folder Management
+Files for this lesson: <i>delete.rb</i>.<br>
+During the lesson, you will received...(Coming Soon...)
+<br><br>
+Packages required:
+<ul>
+	<li>fileutils</li>
+</ul>
+<br><br>
+(Coming Soon...)
+
+## Lesson 11: Try statement
 Files for this lesson: <i>try_rescue.rb</i> and <i>first_file.txt</i>
 
 ```
@@ -326,7 +343,7 @@ ensure # Execute regardless an error occur
 end 
 ```
 
-## Lesson 11: Hash
+## Lesson 12: Hash
 Hash is the Ruby version of dictionary in Python. File for this lesson: <i>try_hash.rb</i>
 <br>
 <br>
@@ -349,4 +366,4 @@ keys_arr = mydict.keys
 v1 = mydict['k1']
 ```
 
-## Lesson 12: (Coming Soon...)
+## Lesson 13: (Coming Soon...)
