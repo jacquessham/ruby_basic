@@ -73,12 +73,17 @@ def generate_menu(options_arr, main=true, price_reg=nil, price_discount=nil)
 		# If this is main menu
 		if main then
 			menu += "#{num} - #{title_str(option)}\n"
-		# If this is product menu
+		# If this is product menu, add price tag
 		else
 			menu += "#{num} - #{title_str(option)}\t$#{price_reg[option]}"
-			if price_discount.keys.include?(option)
-				menu += "discounted --> ${price_discount[option]}"
-			end # end inner if
+			# Check if this option has a discount offer
+			# Check if price_discount is None or not
+			if !price_discount.nil? # Has to be done individually
+				# Check this option is in price_discount
+				then if price_discount.include?(option)
+					menu += "\tdiscounted --> $#{price_discount[option]}"
+				end # end inner if
+			end # end middle if
 			menu += "\n"
 		end # end outter if
 		num += 1
@@ -105,16 +110,22 @@ def get_selection(valid_opts, menu)
 end # end function
 
 # Function for user to select product and quantity
-def choose_product(category, price_reg, price_discount, basket)
-	products = []
-	price_reg[category].each{|prod| products << prod.keys}
-	puts products
 =begin
+	When calling generate_menu, it is expected to pass: 
+	1- category: The user's choice in string that match one of the keys
+	             in price_reg/price_discount hashes
+	2 - main = false, it is not main menu
+	3 - price_reg: The list of products' price, it shall be the hash of 
+	              the value in price[category]
+	4 - price_discount: Same as price_reg but for discount hash
+=end
+def choose_product(category, price_reg, price_discount, basket)
+	products = price_reg[category].keys
+	# See above comment for details
 	sub_ui = generate_menu(products, false ,
 		                   price_reg[category],
 	                       price_discount[category])
-	get_selection(sub_ui["valid_opts"], sub_ui["menu"])
-=end
+	choice = get_selection(sub_ui["valid_opts"], sub_ui["menu"])
 	return basket
 end # end function
 
@@ -129,7 +140,7 @@ def main
 
 	# Program Main line begins here
 	puts "Welcome to #{info['store_name']} at #{info['address']}!"
-	basket = []
+	basket = {}
 	shopping = true
 	categories = price_reg.keys
 	while shopping do
@@ -142,10 +153,9 @@ def main
 			basket = choose_product(choice_str, price_reg, price_discount, basket)
 		else
 			puts "Process to checkout..."
+			shopping = false
 		end # End if
-		shopping = false
 	end # End while
-
 end # end main program
 
 # Run the program
