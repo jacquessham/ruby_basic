@@ -26,9 +26,14 @@ def get_taxables(filename)
 	info_arr = IO.readlines(curr_file)
 
 	info = []
+	row = 0
 	for line in info_arr do
-		curr_line = line.strip.split(",")
-		if curr_line.to_i == 1 then info << curr_line[0] end
+		if row != 0 
+			then
+				curr_line = line.strip.split(",")
+				if Integer(curr_line[1]) == 1 then info << curr_line[0] end
+		end # end if
+		row += 1
 	end # end for loop
 
 	return info
@@ -214,19 +219,34 @@ def show_basket(basket)
 end
 
 # Function to checkout (The basket must have at least 1 item)
-def checkout(basket)
+def checkout(basket, taxables, tax)
 	subtotal = 0.0
-	puts "\tItems\tPrice\tQuantity\tSubtotal"
+	tax_due = 0.0
+	checkout_table = "\tItems\t\t\tPrice\tQuantity\tSubtotal\n"
 	for category in basket.keys
+		# Find if this category is taxable
+		if taxables.include?(category)
+			then taxable = true
+		else
+			taxable = false
+		end # end if
 		for product in basket[category].keys
 			price = basket[category][product]["price"].to_f*1.0
 			quantity = basket[category][product]["quantity"]
 			subtotal_curr = price*quantity
+			if taxable
+				checkout_table += "t\t"
+				tax_due += subtotal_curr*tax
+			else
+				checkout_table += "\t"
+			end # end if
 			subtotal += subtotal_curr
-			puts "\t#{title_str(product)}\t#{price}\t#{quantity}\t#{subtotal_curr.round(2)}"
+			checkout_table +=  "#{title_str(product)}\t\t\t#{price.round(2)}\t#{quantity}\t\t#{subtotal_curr.round(2)}\n"
 		end # end for product
 	end # end for category
-	puts "\tTotal\t\t\t$#{subtotal.round(2)}"
+	checkout_table += "\tTax\t\t\t\t\t\t$#{tax_due.round(2)}\n"
+	checkout_table += "\tTotal\t\t\t\t\t\t$#{subtotal.round(2)}"
+	puts checkout_table
 end
 
 def main
@@ -237,7 +257,7 @@ def main
 	# List of products with discount
 	price_discount = get_price("price_discountlist.csv")
 	# List of categories are taxable
-	taxables = get_taxables(taxables_ca.csv)
+	taxables = get_taxables("taxable_ca.csv")
 
 	# Program Main line begins here
 	puts "Welcome to #{info["store_name"]} at #{info["address"]}!"
@@ -265,7 +285,9 @@ def main
 				then puts "Nothing has selected, no balance is due. Have a good day!"
 			else
 				show_basket(basket)
-				checkout(basket)
+				puts
+				puts
+				checkout(basket, taxables, info["tax"].to_f)
 			end # end if
 			shopping = false
 		end # End if
