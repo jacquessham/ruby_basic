@@ -343,6 +343,13 @@ ensure # Execute regardless an error occur
 end 
 ```
 
+If you want to try an error when user enter a wrong data type, you may add <b>rescue</b> after the user input function like below:
+
+```
+user_input = Integer(gets.chomp) rescue # Do something when an error occur
+```
+
+
 ## Lesson 12: Hash
 Hash is the Ruby version of dictionary in Python. File for this lesson: <i>try_hash.rb</i>
 <br>
