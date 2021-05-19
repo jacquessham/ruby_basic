@@ -347,15 +347,15 @@ nums_dict = JSON.parse(json_file)
 ````
 
 ## Lesson 10: Files and Folder Management
-Files for this lesson: <i>delete.rb</i>.<br>
-During the lesson, you will received...(Coming Soon...)
+Files for this lesson: <i>delete.rb</i>.
+<br>
+During the lesson, you would received a text file <i>no_use.txt</i> and a directory <i>Testing</i>. But both the file and the directory will be deleted before the script ends.
 <br><br>
-Packages required:
-<ul>
-	<li>fileutils</li>
-</ul>
+Packages required: <b>fileutils</b>
 <br><br>
-(Coming Soon...)
+To write a text file, use <b>File.new(filename, "w")</b> to create a file object and call <b>.syswrite(# some string)</b> on the file object. To delete a file, simply use <b>File.delete(filename)</b> to delete.
+<br><br>
+To create a new directory, use <b>Dir.mkdir(directory_name)</b> to do so. If you want to delete the directory, use <b>FileUtils.remove_dir(directory_name)</b> from the <b>fileutils</b> package to do so. It is wise to add <b> if File.directory?(directory_name)</b> after the remove directory function because it will throw an error if there is no existing directory.
 
 ## Lesson 11: Try statement
 Files for this lesson: <i>try_rescue.rb</i> and <i>first_file.txt</i>
@@ -402,3 +402,5 @@ v1 = mydict['k1']
 ```
 
 ## Lesson 13: Data Type Convertion (Coming Soon...)
+
+## Lesson 14: Strings (Coming Soon...)
