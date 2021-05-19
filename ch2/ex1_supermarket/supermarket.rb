@@ -122,13 +122,21 @@ end # End function
 def get_selection(valid_opts, menu)
 	puts menu
 	print "Please enter your selection: "
-	user_input = gets.chomp.to_i
-	# Catch if user did not enter a proper answer
-	while !valid_opts.include?(user_input)
+	user_input = Integer(gets.chomp) rescue -1
+	# Catch if user did not enter a proper answer, given 5 attempts
+	attempt = 0
+	while user_input < 0 and attempt < 5 do
+		attempt += 1
 		puts "Invalid selection, please choose from below options:"
 		puts menu
-		user_input = gets.chomp.to_i
-	end
+		user_input = Integer(gets.chomp) rescue -1
+	end # End while
+
+	# If users did not enter a proper answer after 5 attempts, return to main page
+	if attempt > 4
+		then puts "No valid selection is received, return to main page."
+		user_input = -1
+	end # end if
 	return user_input
 end # end function
 
@@ -141,11 +149,11 @@ def add_basket(category, product, price, basket)
 	# Conduct a while loop if user do not enter a positive number
 	attempt = 0
     while (user_input < 1 and attempt < 5) do
-	attempt += 1 # Keep track of attempts in entering the wrong value
-	puts "Invalid selection, please enter a number for quantity."
-	print "You have selected #{product}, which sells at #{price}. "
-	print "Please enter the quantity: "
-	user_input = Integer(gets.chomp) rescue -1
+		attempt += 1 # Keep track of attempts in entering the wrong value
+		puts "Invalid selection, please enter a number for quantity."
+		print "You have selected #{product}, which sells at #{price}. "
+		print "Please enter the quantity: "
+		user_input = Integer(gets.chomp) rescue -1
 	end # end while
 
 	# Allow user for 5 attempts, if not return to main page
@@ -192,6 +200,8 @@ def choose_product(category, price_reg, price_discount, basket)
 		                   price_reg[category],
 	                       price_discount[category])
 	choice = get_selection(sub_ui["valid_opts"], sub_ui["menu"])
+	# If choice == 0, return to previous page
+	if choice == 0 or choice == -1 then return basket end
 	# Convert user's input number to product in string
 	choice_str = products[choice-1]
 	# Find the price of the product
@@ -277,6 +287,9 @@ def main
 		puts "Please enter from the below categories:"
 		ui = generate_menu(categories)
 		choice = get_selection(ui["valid_opts"], ui["menu"])
+		# If choice receive a -1, process to next iteration
+		if choice == -1 then next end 
+		# user_input is 1 off from array index of category, need to do choice-1
 		choice_str = categories[choice-1]
 		# Print the basket
 		if choice == categories.size + 1
