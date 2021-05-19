@@ -92,6 +92,9 @@ return i,j
 end
 ```
 
+<br><br>
+If you use <b>break</b> in the method, the method will stop immediately.
+
 ## Lesson 5: Loops & If-else Statement
 File for this lesson: <i>loops.rb</i>
 <br><br>
@@ -155,6 +158,9 @@ end
 ```
 
 Note: In the above, it will print 0,1,2,3,4
+
+### Iteration Switch
+Ruby also break the loop or skip an iteration. To skip an iteration, use <b>next</b>, the loop will process to the next ieteration immediately. This is the same as <i>continue</i> in Python. Use <b>break</b> to end the loop immediately, the loop will no longer iterating. <b>break</b> can also used in methods, if so, the method will stop immediately.
 
 ### If-else Statement
 ```
