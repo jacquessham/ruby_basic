@@ -241,7 +241,16 @@ def checkout(basket, taxables, tax)
 				checkout_table += "\t"
 			end # end if
 			subtotal += subtotal_curr
-			checkout_table +=  "#{title_str(product)}\t\t\t#{price.round(2)}\t#{quantity}\t\t#{subtotal_curr.round(2)}\n"
+			# Need to format the tabs for different string length
+			if product.length < 8
+				then checkout_table +=  "#{title_str(product)}\t\t\t#{price.round(2)}\t#{quantity}\t\t#{subtotal_curr.round(2)}\n"
+			elsif product.length < 16
+				checkout_table +=  "#{title_str(product)}\t\t#{price.round(2)}\t#{quantity}\t\t#{subtotal_curr.round(2)}\n"
+			elsif product.length < 20
+				checkout_table +=  "#{title_str(product)}\t#{price.round(2)}\t#{quantity}\t\t#{subtotal_curr.round(2)}\n"
+			else
+				checkout_table +=  "#{title_str(product)[0..18]}\t#{price.round(2)}\t#{quantity}\t\t#{subtotal_curr.round(2)}\n"
+			end # end if
 		end # end for product
 	end # end for category
 	checkout_table += "\tTax\t\t\t\t\t\t$#{tax_due.round(2)}\n"
@@ -276,7 +285,6 @@ def main
 		elsif choice != 0 then
 			puts "You have select #{choice}: #{title_str(choice_str)}"
 			basket = choose_product(choice_str, price_reg, price_discount, basket)
-			puts basket
 		# Process to checkout
 		else
 			puts "Process to checkout..."
