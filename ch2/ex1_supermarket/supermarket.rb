@@ -1,4 +1,13 @@
 =begin
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXX   Functions to import infomations to get the program  XXXXXXXXXXXXXXXXXX
+XXXXXX   running                                             XXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+=end
+
+=begin
 get_info() takes a filename and return a hash of metadata of the
 supermarket including:
 * Name
@@ -79,10 +88,27 @@ def get_price(filename)
 	return prod_list
 end # end function
 
+=begin
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXX             Helper function for formating                XXXXXXXXXXXXXXX
+XXXXXX                                                          XXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+=end
+
 # Capitalize first letter of every word is going to print 
 def title_str(str)
 	return str.split.map{|word| word.capitalize}.join(' ')
 end # end function
+
+=begin
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXX        Functions for program functionalities                   XXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+=end
 
 # Print menu
 def generate_menu(options_arr, main=true, price_reg=nil, price_discount=nil)
@@ -152,6 +178,12 @@ def add_basket(category, product, price, basket)
 	print "Please enter the quantity: "
 	# Ask user to enter an integer, if not an integer, return a -1
 	user_input = Integer(gets.chomp) rescue -1
+	# If user enter 0, return to main page
+	if user_input == 0
+		then
+			puts "You have enter 0, nothing is added to the basket, return to main page"
+			return basket
+	end # end if
 	# Conduct a while loop if user do not enter a positive number
 	attempt = 0
     while (user_input < 1 and attempt < 5) do
@@ -225,6 +257,9 @@ end # end function
 
 # Function to display the basket
 def show_basket(basket)
+	# If basket is empty, show nothing
+	if basket.size == 0 then puts "The basket is empty!"; return end
+	# Showing selection in the basket
 	puts "Here are the items in the basket:"
 	num = 1
 	for category in basket.keys do
@@ -241,9 +276,10 @@ def show_basket(basket)
 end
 
 # Function to checkout (The basket must have at least 1 item)
-def checkout(basket, taxables, tax)
+def checkout(basket, taxables, tax, min_delivery, delivery_fee)
 	subtotal = 0.0
 	tax_due = 0.0
+	# Build string to print the receipt
 	checkout_table = "\tItems\t\t\tPrice\tQuantity\tSubtotal\n"
 	for category in basket.keys
 		# Find if this category is taxable
@@ -277,8 +313,57 @@ def checkout(basket, taxables, tax)
 	end # end for category
 	checkout_table += "\tTax\t\t\t\t\t\t$#{tax_due.round(2)}\n"
 	checkout_table += "\tTotal\t\t\t\t\t\t$#{subtotal.round(2)}"
+	# Print receipt
 	puts checkout_table
+	puts
+	puts
+
+	# Check if subtotal minus tax_due is over min_delievery, if not enter this statement
+	if (subtotal - tax_due) < min_delivery
+		then 
+			puts "The subtotal is below the minimum delivery requirement!"
+			puts "Please shop until $#{min_delivery.round(2)} in order to complete the transaction."
+			print "Do you wish to continue to shop? Enter 1 to continue or 0 to end:"
+			user_input = Integer(gets.chomp) rescue -1
+			# Try-catch for invalid answer, given 5 attemps
+			attempt = 0
+			while (user_input < 0 or user_input > 1) and attempt < 5 do
+				attempt += 1
+				puts "Invalid selection, please enter again.."
+				print "Do you wish to continue to shop? Enter 1 to continue or 0 to end:"
+				user_input = Integer(gets.chomp) rescue -1
+			end # end while
+			# If user_input is invalid go back to main page
+			if user_input == -1 
+				then 
+					puts "Invalid selection, going back to main page."
+					return true
+			# If user_input is 1, go back to main page to continue to shop
+			elsif user_input == 1 
+				then 
+					puts "Returning to main page to continue shopping."
+					return true
+			# If enter 0, end the everything for good
+			else 
+				puts "I am sorry to see you leave...Please shop again!"
+				return false
+			end # end inner if
+	end # end outter if
+
+	# Transaction completed! Return false to break the loop
+	puts "The delivery fee is $#{delivery_fee.round(2)}."
+	puts "Your Grand Total for this transaction is $#{(subtotal+delivery_fee).round(2)}."
+	puts "Thank you for your purchase! Have a good day!"
+	return false
 end
+
+=begin
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXX         Function to define how main program runs         XXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+=end
 
 def main
 	# Read all files to prepare to start the program
@@ -292,6 +377,7 @@ def main
 
 	# Program Main line begins here
 	puts "Welcome to #{info["store_name"]} at #{info["address"]}!"
+	puts "Please note that the basket need to be shopped at least #{info["minimum_delivery"]} for delivery"
 	basket = {}
 	shopping = true
 	categories = price_reg.keys
@@ -315,17 +401,26 @@ def main
 			puts "Process to checkout..."
 			# Check if anything selected, if not just let user go
 			if basket.keys.size == 0
-				then puts "Nothing has selected, no balance is due. Have a good day!"
+				then puts "Nothing has selected, no balance is due. Please come back to shop. Have a good day!"
+				shopping = false
 			else
 				show_basket(basket)
 				puts
 				puts
-				checkout(basket, taxables, info["tax"].to_f)
+				shopping = checkout(basket, taxables, info["tax"].to_f, info["minimum_delivery"].to_f,
+					                info["base_delivery_fee"].to_f)
 			end # end if
-			shopping = false
 		end # End if
 	end # End while
 end # end main program
+
+=begin
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXX               Main Program starts here                  XXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+=end
 
 # Run the program
 main
