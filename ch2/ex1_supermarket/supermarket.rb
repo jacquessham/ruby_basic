@@ -94,13 +94,19 @@ def generate_menu(options_arr, main=true, price_reg=nil, price_discount=nil)
 			menu += "#{num} - #{title_str(option)}\n"
 		# If this is product menu, add price tag
 		else
-			menu += "#{num} - #{title_str(option)}\t$#{price_reg[option]}"
+			if option.length < 12
+				then menu += "#{num} - #{title_str(option)}\t\t$#{price_reg[option]}"
+			elsif option.length < 20
+				then menu += "#{num} - #{title_str(option)}\t$#{price_reg[option]}"
+			else
+				menu += "#{num} - #{title_str(option)[0..18]}\t$#{price_reg[option]}"
+			end # end if
 			# Check if this option has a discount offer
 			# Check if price_discount is None or not
 			if !price_discount.nil? # Has to be done individually
 				# Check this option is in price_discount
 				then if price_discount.include?(option)
-					menu += "\tdiscounted --> $#{price_discount[option]}"
+					menu += "\t\tdiscounted --> $#{price_discount[option]}"
 				end # end inner if
 			end # end middle if
 			menu += "\n"
@@ -223,7 +229,13 @@ def show_basket(basket)
 	num = 1
 	for category in basket.keys do
 		for product in basket[category].keys do
-			puts "#{num} - #{product}\tx#{basket[category][product]["quantity"]}"
+			if product.length < 12
+				then puts "#{num} - #{title_str(product)}\t\tx#{basket[category][product]["quantity"]}"
+			elsif product.length < 20
+				puts "#{num} - #{title_str(product)}\tx#{basket[category][product]["quantity"]}"
+			else
+				puts "#{num} - #{title_str(product)[0..18]}\tx#{basket[category][product]["quantity"]}"
+			end # end if
 		end # end for product
 	end # end for category
 end
