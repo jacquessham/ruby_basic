@@ -46,3 +46,90 @@ nums_dict = JSON.parse(json_file)
 for num in nums_dict.keys
 	puts "#{num}^2 = #{nums_dict[num]["2"]} and #{num}^3 = #{nums_dict[num]["3"]}"
 end # End for loop
+
+# Save the json file in readable indentation
+puts "Now save the json file in prettier format, and it looks like:"
+pretty_str = JSON.pretty_generate(nums_dict)
+puts pretty_str
+File.write("numbers_pretty.json", pretty_str)
+
+=begin
+Expected Outcome:
+This is Lesson 9, we are going Loading and Saving Data for Specific Format in Ruby
+Now saving a csv file...
+csv file saved!
+Now reading a csv file just saved
+numbers, squared_numbers
+1, 1
+2, 4
+3, 9
+4, 16
+5, 25
+6, 36
+7, 49
+8, 64
+9, 81
+10, 100
+Now converting a string with csv data
+alphabet, vocab
+a, apple
+b, boy
+c, cat
+Now saving a json file...
+json file saved!
+Now reading the json file just saved
+1^2 = 1 and 1^3 = 1
+2^2 = 4 and 2^3 = 8
+3^2 = 9 and 3^3 = 27
+4^2 = 16 and 4^3 = 64
+5^2 = 25 and 5^3 = 125
+6^2 = 36 and 6^3 = 216
+7^2 = 49 and 7^3 = 343
+8^2 = 64 and 8^3 = 512
+9^2 = 81 and 9^3 = 729
+10^2 = 100 and 10^3 = 1000
+Now save the json file in prettier format, and it looks like:
+{
+  "1": {
+    "2": 1,
+    "3": 1
+  },
+  "2": {
+    "2": 4,
+    "3": 8
+  },
+  "3": {
+    "2": 9,
+    "3": 27
+  },
+  "4": {
+    "2": 16,
+    "3": 64
+  },
+  "5": {
+    "2": 25,
+    "3": 125
+  },
+  "6": {
+    "2": 36,
+    "3": 216
+  },
+  "7": {
+    "2": 49,
+    "3": 343
+  },
+  "8": {
+    "2": 64,
+    "3": 512
+  },
+  "9": {
+    "2": 81,
+    "3": 729
+  },
+  "10": {
+    "2": 100,
+    "3": 1000
+  }
+}
+This concludes Lesson 9	
+=end
