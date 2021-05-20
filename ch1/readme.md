@@ -406,7 +406,11 @@ keys_arr = mydict.keys
 # Obtain value of k1 from hash
 v1 = mydict['k1']
 ```
+## Lesson 13: Random (Coming Soon...)
+File for this lesson: <i>try_random.rb</i>
 
-## Lesson 13: Data Type Convertion (Coming Soon...)
+## Lesson 14: Data Type Convertion (Coming Soon...)
 
-## Lesson 14: Strings (Coming Soon...)
+## Lesson 15: Strings (Coming Soon...)
+
+
