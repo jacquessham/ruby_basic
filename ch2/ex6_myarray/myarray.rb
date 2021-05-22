@@ -46,9 +46,9 @@ class MyArray
 										then @arr_sorted << elem
 									elsif elem > @arr_sorted[0]
 										then @arr_sorted = [@arr_sorted[0], elem, @arr_sorted[1]]
-									else @arr_sorted = [0].concat(@arr_sorted)
+									else @arr_sorted = [elem].concat(@arr_sorted)
 									end
-							elsif @arr_sorted.size > 1
+							elsif @arr_sorted.size > 2
 								loopgate = true
 								i = 0
 								curr = @arr_sorted[0]
@@ -155,9 +155,9 @@ class MyArray
 							then @arr_sorted << elem
 						elsif elem > @arr_sorted[0]
 							then @arr_sorted = [@arr_sorted[0], elem, @arr_sorted[1]]
-						else @arr_sorted = [0].concat(@arr_sorted)
+						else @arr_sorted = [elem].concat(@arr_sorted)
 						end
-				elsif @arr_sorted.size > 1
+				elsif @arr_sorted.size > 2
 					loopgate = true
 					i = 0
 					curr = @arr_sorted[0]
@@ -165,7 +165,7 @@ class MyArray
 					if elem < curr
 						then @arr_sorted = [elem].concat(@arr_sorted); loopgate = false
 					end # end if
-								
+
 					while loopgate
 						puts "i now is #{i}"
 						if i == @arr_sorted.size-1
@@ -225,6 +225,7 @@ class MyArray
 	end # end method
 
 	def distinct
+		
 	end # end method
 
 
@@ -242,6 +243,7 @@ class MyArray
 	end # end method
 
 	def getMean
+		if @arr_size == 0 then return 0 end
 		sum_value = 0
 		elem_count = 0
 		for elem in @arr_stats.keys do
@@ -252,6 +254,20 @@ class MyArray
 	end # end method
 
 	def getMedian
+		if @arr_size == 0 then return 0 
+		elsif @arr_size == 1 then return arr[0] end
+
+		if @arr_size % 2 ==1
+			then
+				target_index = Integer(@arr_size/2)
+				return @arr_sorted[target_index]
+		end # end if
+
+		target_index_low = Integer(@arr_size/2) - 1
+		target_index_high = Integer(@arr_size/2)
+
+		return (@arr_sorted[target_index_low] + @arr_sorted[target_index_high])/2.0
+
 	end # end method
 
 	def getSD
@@ -299,3 +315,8 @@ b.print_sorted
 
 c = MyArray.new([5,21,12,3,14])
 c.print_sorted
+puts c.getMedian
+
+d = MyArray.new([5,21,3,14])
+d.print_sorted
+puts d.getMedian
