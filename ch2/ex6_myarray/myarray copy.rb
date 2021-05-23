@@ -28,7 +28,71 @@ class MyArray
 									@arr_stats[elem]["count"] = 1
 									@arr_stats[elem]["position"] = [@arr_size]
 							end # end if
-							add_arr_sort(elem)
+							# Add elemnt to @arr_sort
+							if @arr_sorted.size == 0
+								then @arr_sorted << elem
+
+							elsif @arr_sorted.size == 1
+								then
+									if elem > @arr_sorted[0]
+										then @arr_sorted << elem
+									else
+										@arr_sorted = [elem, @arr_sorted[0]]
+									end
+
+							elsif  @arr_sorted.size == 2
+								then
+									if elem > @arr_sorted[1]
+										then @arr_sorted << elem
+									elsif elem > @arr_sorted[0]
+										then @arr_sorted = [@arr_sorted[0], elem, @arr_sorted[1]]
+									else @arr_sorted = [elem].concat(@arr_sorted)
+									end
+							elsif @arr_sorted.size > 2
+								loopgate = true
+								i = 0
+								curr = @arr_sorted[0]
+								# if elem < curr, add elem in the front
+								if elem < curr
+									then @arr_sorted = [elem].concat(@arr_sorted); loopgate = false
+								end # end if
+
+								while loopgate
+									puts "i now is #{i}"
+									if i == @arr_sorted.size-1
+										then
+											puts "At the end of array"
+											if elem >= curr
+												then @arr_sorted << elem
+											else
+												left_arr = @arr_sorted[0..-2]
+												left_arr << elem
+												left_arr << curr
+												@arr_sorted = left_arr
+											end # end if 
+									loopgate = false
+									break # If i == @arr_sorted.size-1, break right away
+									end # end if 
+
+									# Compare elements in @arr_sorted and elem
+									if curr < elem
+										then i += 1; curr = @arr_sorted[i]; puts "next"; next
+									end # end if
+
+									# If not break, means the right position
+									left_arr =  @arr_sorted[0..i]
+									right_arr = @arr_sorted[i+1..-1]
+									puts "while i at #{i}"
+									puts "Before anything happens #{@arr_sorted}, curr is #{curr}"
+									puts "left_arr is #{left_arr}"
+									puts "right_arr is #{right_arr}"
+									left_arr << elem
+									@arr_sorted = left_arr.concat(right_arr)
+									puts "The outcome is #{@arr_sorted}"
+									loopgate = false
+								end # end while
+								
+							end # end if
 							@arr_size += 1
 					else elem_notint << elem
 					end # end if
@@ -47,67 +111,6 @@ class MyArray
 		end # end if
 
 	end # end constructor
-
-	
-	# Add element to @arr_sort
-	def add_arr_sort(elem)
-		if @arr_sorted.size == 0
-			then @arr_sorted << elem
-
-		elsif @arr_sorted.size == 1
-			then
-				if elem > @arr_sorted[0]
-					then @arr_sorted << elem
-				else
-					@arr_sorted = [elem, @arr_sorted[0]]
-				end
-
-		elsif @arr_sorted.size == 2
-			then
-				if elem > @arr_sorted[1]
-					then @arr_sorted << elem
-				elsif elem > @arr_sorted[0]
-					then @arr_sorted = [@arr_sorted[0], elem, @arr_sorted[1]]
-				else @arr_sorted = [elem].concat(@arr_sorted)
-				end
-		elsif @arr_sorted.size > 2
-			loopgate = true
-			i = 0
-			curr = @arr_sorted[0]
-			# if elem < curr, add elem in the front
-			if elem < curr
-				then @arr_sorted = [elem].concat(@arr_sorted); loopgate = false
-			end # end if
-
-			while loopgate
-				if i == @arr_sorted.size-1
-					then
-						if elem >= curr
-							then @arr_sorted << elem
-						else
-							left_arr = @arr_sorted[0..-2]
-							left_arr << elem
-							left_arr << curr
-							@arr_sorted = left_arr
-						end # end if 
-				loopgate = false
-				break # If i == @arr_sorted.size-1, break right away
-				end # end if 
-
-				# Compare elements in @arr_sorted and elem
-				if curr < elem
-					then i += 1; curr = @arr_sorted[i]; next
-				end # end if
-
-				# If not break, means the right position
-				left_arr =  @arr_sorted[0..i]
-				right_arr = @arr_sorted[i+1..-1]
-				left_arr << elem
-				@arr_sorted = left_arr.concat(right_arr)
-				loopgate = false
-			end # end while
-		end # end if
-	end # end method
 
 	# Helper function to check whether element is int
 	def is_int(elem)
@@ -134,7 +137,70 @@ class MyArray
 						then temp = Array.new(@size_incre)
 							 @arr.concat(temp)
 				end # end if
-				add_arr_sort(elem)	
+				# Add elemnt to @arr_sort
+				if @arr_sorted.size == 0
+					then @arr_sorted << elem
+
+				elsif @arr_sorted.size == 1
+					then
+						if elem > @arr_sorted[0]
+							then @arr_sorted << elem
+						else
+							@arr_sorted = [elem, @arr_sorted[0]]
+						end
+
+				elsif  @arr_sorted.size == 2
+					then
+						if elem > @arr_sorted[1]
+							then @arr_sorted << elem
+						elsif elem > @arr_sorted[0]
+							then @arr_sorted = [@arr_sorted[0], elem, @arr_sorted[1]]
+						else @arr_sorted = [elem].concat(@arr_sorted)
+						end
+				elsif @arr_sorted.size > 2
+					loopgate = true
+					i = 0
+					curr = @arr_sorted[0]
+					# if elem < curr, add elem in the front
+					if elem < curr
+						then @arr_sorted = [elem].concat(@arr_sorted); loopgate = false
+					end # end if
+
+					while loopgate
+						puts "i now is #{i}"
+						if i == @arr_sorted.size-1
+							then
+								puts "At the end of array"
+								if elem >= curr
+									then @arr_sorted << elem
+								else
+									left_arr = @arr_sorted[0..-2]
+									left_arr << elem
+									left_arr << curr
+									@arr_sorted = left_arr
+								end # end if 
+						loopgate = false
+						break # If i == @arr_sorted.size-1, break right away
+						end # end if 
+
+						# Compare elements in @arr_sorted and elem
+						if curr < elem
+							then i += 1; curr = @arr_sorted[i]; puts "next"; next
+						end # end if
+
+						# If not break, means the right position
+						left_arr =  @arr_sorted[0..i]
+						right_arr = @arr_sorted[i+1..-1]
+						puts "while i at #{i}"
+						puts "Before anything happens #{@arr_sorted}, curr is #{curr}"
+						puts "left_arr is #{left_arr}"
+						puts "right_arr is #{right_arr}"
+						left_arr << elem
+						@arr_sorted = left_arr.concat(right_arr)
+						puts "The outcome is #{@arr_sorted}"
+						loopgate = false
+					end # end while
+				end #end if
 		else 
 			puts "This element #{elem} you gave is not a integer..."
 			return false
@@ -149,77 +215,13 @@ class MyArray
 	end # end method
 
 	def remove(elem)
-		# Check if elem exist
-		if !@arr_stats.include?(elem) then return false end
-		# Find the elem position
-		elem_pos = find(elem)[0]
-		# Then get left_arr and right_arr for @arr
-		# Obtain left_arr
-		if elem_pos == 0
-			then left_arr = []
-		else
-			left_arr = @arr[0..elem_pos-1]
-		end # end if
-		# Obtain right arr
-		if elem_pos == @arr_size
-			then right_arr = []
-		else
-			right_arr = @arr[elem_pos..-1]
-		end
-		# Remove elem by merging left_arr and right_arr
-		@arr = left_arr.concat(right_arr)
-		@arr << nil
-		@arr_size -= 1
-
-		# Reassign @arr_stats
-		# Remove elem position
-		@arr_stats[elem]["count"] -= 1
-		if @arr_stats[elem]["count"] == 0
-			then @arr_stats.delete(elem)
-		else
-			then @arr_stats[elem]["position"] = @arr_stats[elem]["position"][1..-1]
-		end
-		# Reassign elem position in @arr_stats
-		checked = []
-		for sub_elem in right_arr
-			if checked.include?(sub_elem)
-				temp = @arr_stats[sub_elem]["position"]
-				for i in 0..temp.size
-					if pos > elem_pos then temp[i] -= 1 end # end if
-				end # end for
-				@arr_stats[sub_elem]["position"] = temp
-				checked << sub_elem
-			end # end if
-		end # end for
-
-		# Remove elem from @arr_sorted
-		elem_pos_sorted = @arr_sorted.index(elem)
-		@arr_sorted.delete_at(elem_pos_sorted)
-
 	end # end method
 
 	def shuffle
 	end # end method
 
 	def reserve
-		temp_arr = @arr
-		@arr = Array.new(@arr_maxsize)
-		@arr_stats = {} # Redeclare arr_stats
-		old_pos = @arr_size - 1
-		for i in 0..@arr_size
-			curr_elem = temp_arr[old_pos]
-			@arr[i] = curr_elem
-			if @arr_stats.include?(curr_elem)
-				then # Add info if so
-					@arr_stats[curr_elem]["count"] += 1
-					@arr_stats[curr_elem]["position"] << i
-				else
-					@arr_stats[curr_elem] = {}
-					@arr_stats[curr_elem]["count"] = 1
-					@arr_stats[curr_elem]["position"] = i
-			end # end if
-			old_pos -= 1
-		end # end for
+		
 	end # end method
 
 	def distinct
