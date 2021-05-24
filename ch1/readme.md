@@ -1,8 +1,11 @@
 # Chapter 1: Very Basic Syntax
 
+<<<<<<< HEAD
 ## Content
 [Loops](#lesson-5-loops-&-if-else-statement)
 
+=======
+>>>>>>> parent of e45b581 (Try same page link)
 
 ## Lesson 1: Hello World!
 File for this lesson: <i>helloworld.rb</i>
