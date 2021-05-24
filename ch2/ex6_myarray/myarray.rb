@@ -49,7 +49,7 @@ class MyArray
 	end # end constructor
 
 	
-	# Add element to @arr_sort
+	# Add element to @arr_sort to keep track
 	def add_arr_sort(elem)
 		if @arr_sorted.size == 0
 			then @arr_sorted << elem
@@ -118,7 +118,7 @@ class MyArray
 
 	def addElement(elem)
 		if is_int(elem)
-			then
+			then # If it is integer, do below
 				@arr[@arr_size] = Integer(elem)
 				# Check if this elem has a profile in @arr_size
 				if @arr_stats.include?(elem)
@@ -130,12 +130,13 @@ class MyArray
 						@arr_stats[elem]["count"] = 1
 						@arr_stats[elem]["position"] = [@arr_size]
 				end # end if
+				# If @arr.size hit max size, add more size to @arr
 				if @arr.size == @arr_maxsize
 						then temp = Array.new(@size_incre)
 							 @arr.concat(temp)
 				end # end if
 				add_arr_sort(elem)	
-		else 
+		else # If it is not integer, do nothing and notify user
 			puts "This element #{elem} you gave is not a integer..."
 			return false
 		end # end if
@@ -196,19 +197,24 @@ class MyArray
 		elem_pos_sorted = @arr_sorted.index(elem)
 		@arr_sorted.delete_at(elem_pos_sorted)
 
+		# Notify user elem is removed
+		return true
 	end # end method
 
 	def shuffle
 	end # end method
 
 	def reserve
+		# Set old @arr aside
 		temp_arr = @arr
+		# Redeclare a new array for @arr and @arr_stats
 		@arr = Array.new(@arr_maxsize)
-		@arr_stats = {} # Redeclare arr_stats
+		# Make old position to become new postion
 		old_pos = @arr_size - 1
 		for i in 0..@arr_size
-			curr_elem = temp_arr[old_pos]
-			@arr[i] = curr_elem
+			curr_elem = temp_arr[old_pos] # Current element
+			@arr[i] = curr_elem # Assign new position
+			# Record the count and position of new position
 			if @arr_stats.include?(curr_elem)
 				then # Add info if so
 					@arr_stats[curr_elem]["count"] += 1
@@ -218,14 +224,9 @@ class MyArray
 					@arr_stats[curr_elem]["count"] = 1
 					@arr_stats[curr_elem]["position"] = i
 			end # end if
-			old_pos -= 1
+			old_pos -= 1 # move on to next element
 		end # end for
 	end # end method
-
-	def distinct
-		
-	end # end method
-
 
 	def print_array
 		for elem in @arr do	
@@ -269,6 +270,7 @@ class MyArray
 	end # end method
 
 	def getSD
+		# First obtain mean
 		sum_value = 0
 		elem_count = 0
 		for elem in @arr_stats.keys do
@@ -276,6 +278,7 @@ class MyArray
 			elem_count += @arr_stats[elem]["count"]
 		end
 		mean =  (1.0*sum_value)/elem_count
+		# Then take sum of square of element minus mean
 		sum_value2 = 0
 		for elem in @arr_stats.keys do
 			sum_value2 += @arr_stats[elem]["count"]*((elem-mean)**2)
@@ -283,6 +286,7 @@ class MyArray
 		return (sum_value2/(elem_count-1))**0.5
 	end # end method
 
+	# Delete later
 	def print_phycial_array
 		for elem in @arr do	
 			if elem != nil then print "#{elem} " else print "nil " end
@@ -290,10 +294,12 @@ class MyArray
 		puts
 	end
 
+	# Delete later
 	def print_stats(elem)
 		puts @arr_stats[elem]
 	end
 
+	# Delete later
 	def print_sorted
 		puts "#{@arr_sorted}"
 	end
