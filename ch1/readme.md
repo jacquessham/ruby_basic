@@ -1,7 +1,7 @@
 # Chapter 1: Very Basic Syntax
 
 ## Content
-[Loops](#Lesson-5:-Loops-&-If-else-Statement)
+[Loops](#lesson-5-loops-&-if-else-statement)
 
 
 ## Lesson 1: Hello World!
