@@ -1,5 +1,8 @@
 # Chapter 1: Very Basic Syntax
 
+## Content
+[Loops](#Lesson-5:-Loops-&-If-else-Statement)
+
 
 ## Lesson 1: Hello World!
 File for this lesson: <i>helloworld.rb</i>
