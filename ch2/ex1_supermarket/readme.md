@@ -33,9 +33,33 @@ List of product price can only has 3 columns: category, product name, and price.
 <br><br>
 taxable_ca.csv included the category that is taxable or not, it has 2 columns: category and taxable. Taxable column should only include 0 or 1, which represents not taxable and taxable, respectively.
 
-## Persona and Use Case (Coming Soon...)
+## Personas
+There are the following personas:
+<ul>
+	<li>Shopper purchase grocery only, subtotal > minimum delivery requirement</li>
+	<li>Shopper purchase taxable and non-taxable items, subtotal > minimum delivery requirement</li>
+	<li>Shopper purchase items below minimum delivery requirement, and continue to shop until the subtotal meet minimum delivery requirement</li>
+	<li>Shopper purchase items below minimum delivery requirement, but will not continue to shop until the subtotal meet minimum delivery requirement</li>
+	<li>Shopper select nothing in the basket and leave</li>
+	<li>Shopper select at least one item but leave without any purchase</li>
+</ul>
 
-## How to Use this Program (Coming Soon...)
+## How to Use this Program for Personas
+<u>Shopper Purchase Grocery Only, Subtotal > Minimum Delivery Requirement</u><br>
+The shopper will be able to choose a category of grocery in the main page, and the program will generate a list of items with original price and discounted price. Shopper may choose the item with quantity and place in the basket. Shopper may select check out to check out and end the program.
+<br><br>
+<u>Shopper Purchase Taxable and Non-Taxable Items, Subtotal > Minimum Delivery Requirement</u><br>
+The shopper will be able to choose a category of grocery in the main page, and the program will generate a list of items with original price and discounted price. Shopper may choose the item with quantity and place in the basket. Shopper may select check out to check out and end the program. During the check out process, the program will generate a receipt on the command line and the taxable items will be marked as it would in the real world receipt. The grand total will be added sales tax, but sales tax does not count toward to minimum delivery requirement.
+<br><br>
+<u>Shopper Purchase Items below Minimum Delivery Requirement, and Continue to Shop until the Subtotal Meet Minimum Delivery Requirement</u><br>
+The shopper will be able to choose a category of grocery in the main page, and the program will generate a list of items with original price and discounted price. Shopper may choose the item with quantity and place in the basket. Shopper may select check out to check out and end the program. During the check out process, the program will notify shopper that the subtotal does not meet minimum delivery requirement and offer shopper to continue to shop, if so, the program will bring the shopper back to the main page and shop until user provoke checkout.
+<br><br>
+<u>Shopper Purchase Items below Minimum Delivery Requirement, but will not Continue to Shop Until the Subtotal Meet Minimum Delivery Requirement</u><br>
+The shopper will be able to choose a category of grocery in the main page, and the program will generate a list of items with original price and discounted price. Shopper may choose the item with quantity and place in the basket. Shopper may select check out to check out and end the program. During the check out process, the program will notify shopper that the subtotal does not meet minimum delivery requirement and offer shopper to continue to shop, but when shopper decline, the program will stop.
+<br><br>
+<u>Shopper Select at least One Item but Leave without any Purchase</u><br>
+(Coming Soon...)
+
 
 ## Methods in the Script (Coming Soon...)
 

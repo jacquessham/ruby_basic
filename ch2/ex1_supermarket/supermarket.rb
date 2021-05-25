@@ -353,6 +353,7 @@ def checkout(basket, taxables, tax, min_delivery, delivery_fee)
 	# Transaction completed! Return false to break the loop
 	puts "The delivery fee is $#{delivery_fee.round(2)}."
 	puts "Your Grand Total for this transaction is $#{(subtotal+delivery_fee).round(2)}."
+	puts "Let's assume I have taken your delivery address and payment method..."
 	puts "Thank you for your purchase! Have a good day!"
 	return false
 end

@@ -1,8 +1,8 @@
 # Chapter 2: Exercies
 The purpose of this chapter is to practice the basic syntax learnt from Chapter 1.
 
-## Exercise 1: Supermarket Menu (Coming Soon...)
-This exerice is to build a supermarket menu for user to interact on command line to select items and calculate the check out total in order to get used to the basic Ruby syntax. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex1_supermarket">here</a> for more detail.
+## Exercise 1: Supermarket Menu
+This exerice is to build a supermarket menu for user to interact on command line to select items and calculate the check out total in order to get used to the basic Ruby syntax. The goal is to get used to use basic methods in Ruby, such as loops, if-else statements, and import files. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex1_supermarket">here</a> for more detail.
 
 ## Exercise 2: Calculator (Coming Soon...)
 The goal of this exercise is to practice declaring classes in Ruby. We are going to build a calculator for various purpose. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex2_calculator">here</a> for more detail.
