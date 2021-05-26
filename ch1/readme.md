@@ -310,6 +310,13 @@ To open to read/write a file: <b>File.new(filename, mode)</b>
 In read mode: <b>filename.sysread(n)</b> reads the first <b>n</b> characters in the file filename. <b>IO.readlines(filename)</b> reads all lines in filename and store all lines in string in an array. 
 <br><br>
 In write mode: <b>filename.syswrite()</b> writes string in filename.
+<br><br>
+List of mode:
+<ul>
+	<li><b>r</b>: Read only</li>
+	<li><b>w</b>: Write, overwrite if exist a file</li>
+	<li><b>a</b>: Append to a file, if not exist, create a new file and write</li>
+</ul>
 
 ## Lesson 9: Loading and Saving Data for Specific Format (CSV, JSON)
 Files for this lesson: <i>gets_v2.rb</i>.<br>
@@ -416,4 +423,4 @@ Random is a standard gem in Ruby and used to randomly generate integers or a flo
 
 ## Lesson 15: Strings (Coming Soon...)
 
-
+## Lesson 16: Date/Time (Coming Soon..)
