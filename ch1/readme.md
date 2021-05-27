@@ -424,3 +424,4 @@ Random is a standard gem in Ruby and used to randomly generate integers or a flo
 ## Lesson 15: Strings (Coming Soon...)
 
 ## Lesson 16: Date/Time (Coming Soon..)
+Reference: <a href="https://www.rubyguides.com/2015/12/ruby-time/">here</a>
