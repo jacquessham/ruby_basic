@@ -222,7 +222,7 @@ class MyArray
 				else
 					@arr_stats[curr_elem] = {}
 					@arr_stats[curr_elem]["count"] = 1
-					@arr_stats[curr_elem]["position"] = i
+					@arr_stats[curr_elem]["position"] = [i]
 			end # end if
 			old_pos -= 1 # move on to next element
 		end # end for
@@ -236,6 +236,36 @@ class MyArray
 	end # end method
 
 	def distinct
+		# Copy @'s to temp variables
+		temp_arr = @arr
+		temp_arr_sorted = @arr_sorted
+		temp_arr_stats = @arr_stats
+		temp_arr_size = @arr_size
+
+		@arr = Array.new(@arr_maxsize)
+		# Update @arr_size = temp_arr_stats.keys.size
+		@arr_size = temp_arr_stats.keys.size
+		# Redeclare @arr_sorted and @arr_stats
+		@arr_sorted = []
+		@arr_stats = {}
+
+		# Declare checked to keep track if element added
+		checked = []
+		curr_pos = 0 # To keep track which index added to @arr
+		# Loop over temp_arr
+		for elem in temp_arr do
+			if !checked.include?(elem)
+				then @arr << elem
+					 @arr_stats[elem] = {}
+					 @arr_stats[elem][postion] = 1
+					 @arr_stats[elem][postion] = [curr_pos]
+					 add_arr_sort(elem)
+					 checked << elem
+					 curr_pos += 1
+			end # end if
+		end # end for
+
+
 	end # end method
 
 	def findHCF(arr2)
