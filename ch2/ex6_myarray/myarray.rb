@@ -202,6 +202,32 @@ class MyArray
 	end # end method
 
 	def shuffle
+		# Save the old @arr
+		temp_arr = @arr
+		@arr = Array.new(@arr_maxsize)
+		@arr_stats = {}
+		pos_taken = Array.new(@arr_size)
+		for i in 0..@arr_size do
+			# Generate a new position which is no i nor taken in pos_taken
+			loop do
+				new_pos = rand(0..@arr_size)
+				# There will be a bug if last i has to take the same position if others are taken
+				break if new_pos != i and !pos_taken.include?(new_pos)		
+			end # end loop do
+			# Assign new position
+			@arr[new_pos] = temp_arr[i]
+
+			# Check if this elem has a profile in @arr_size
+			if @arr_stats.include?(elem)
+				then # Add info if so
+					@arr_stats[elem]["count"] += 1
+					@arr_stats[elem]["position"] << @arr_size
+				else
+					@arr_stats[elem] = {}
+					@arr_stats[elem]["count"] = 1
+					@arr_stats[elem]["position"] = [@arr_size]
+			end # end if
+		end # end for
 	end # end method
 
 	def reserve
@@ -296,7 +322,6 @@ class MyArray
 		target_index_high = Integer(@arr_size/2)
 
 		return (@arr_sorted[target_index_low] + @arr_sorted[target_index_high])/2.0
-
 	end # end method
 
 	def getSD
