@@ -437,7 +437,20 @@ File for this lesson: <i>try_random.rb</i>
 <br><br>
 Random is a standard gem in Ruby and used to randomly generate integers or a float number. Use <b>rand</b> to generate a float number between 0 and 1. To generate an integer between a and b, use <b>rand(a..b)</b>, note that you should put a range betwen a and b, not a comma b. If you have an array, you may call a method on the array with <b>.sample</b> to randomly pick an element from the array, or use <b>.sample(n)</b> to pick n elements from the array.
 
-## Lesson 14: Data Type Convertion (Coming Soon...)
+## Lesson 14: Data Type Convertion
+File for this lesson: <i>conversion.rb</i>
+<br><br>
+Below is the list to convert between data types:
+<ul>
+	<li>to_i: Convert string/float to integer</li>
+	<li>to_f: Convert string/integer to float</li>
+	<li>to_a: Convert range to array</li>
+	<li>Integer(string): Convert an integer string to integer, note that float string does not work, ie, Integer("1.04") will throw an error, only Integer("1") works</li>
+	<li>Float(string): Convert a float string to float</li>
+	<li>to_sym: Convert string to symbol</li>
+	<li>to_s: Convert integer/float/array/symbol to string</li>
+
+</ul>
 
 ## Lesson 15: Strings 
 File for this lesson: <i>try_string.rb</i>
