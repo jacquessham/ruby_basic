@@ -50,7 +50,7 @@ class MyArray
 
 	
 	# Add element to @arr_sort to keep track
-	def add_arr_sort(elem)
+	private def add_arr_sort(elem)
 		if @arr_sorted.size == 0
 			then @arr_sorted << elem
 
@@ -110,7 +110,7 @@ class MyArray
 	end # end method
 
 	# Helper function to check whether element is int
-	def is_int(elem)
+	private def is_int(elem)
 		elem = Integer(elem) rescue nil
 		if elem == nil then return false end
 		return true

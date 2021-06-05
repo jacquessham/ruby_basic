@@ -50,9 +50,10 @@ class Statistics < Calculator
 			if num > max then max = num end
 		end # end for
 
-		result["average"] = total/@num1.size
+		num_count = @num1.size
+		result["average"] = total/num_count
 		result["minimum"] = min
-		result['maximum'] = max
+		result["maximum"] = max
 
 		# Find median
 		num_sorted = @num1.sort
