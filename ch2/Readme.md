@@ -7,8 +7,8 @@ This exerice is to build a supermarket menu for user to interact on the command 
 ## Exercise 2: Calculator
 This exercise is to build a calculator which is able to calculate different formulas. The goal of this exercise is to practice declaring classes in Ruby. We are going to build a calculator for various purpose. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex2_calculator">here</a> for more detail.
 
-## Exercise 3: Health Profile (Coming Soon...)
-The goal of this exercise is to practice on defining classes, read and save files on Ruby. We will be simulate a health provider to calculate the simple health metrics for list of patients. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex3_healthprofile">here</a> for more detail.
+## Exercise 3: Health Profile
+This exercise is to build a program to read patients' basic health information and convert to health metric for reports. The goal of this exercise is to practice on defining classes, read and save files on Ruby. We will be simulate a health provider to calculate the simple health metrics for list of patients. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex3_healthprofile">here</a> for more detail.
 
 ## Exercise 4: Guessing Game
 The exercise is to build an interactive program for user to guess a number randomly pick from the program by having the user interact on the command line. The goal is to practice more loops and conditional by building a guessing game. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex4_guessing">here</a> for more detail.
