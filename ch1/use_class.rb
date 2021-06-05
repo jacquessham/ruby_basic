@@ -85,6 +85,21 @@ class Secondary_school_student < Student
 
 end
 
+class PrimarySchoolChickenCalculator
+	def initialize(num)
+		@num = num
+	end
+
+	attr_accessor :num
+
+	private def auto_add1(num)
+		return num+1
+	end
+
+	def get_more_num
+		return auto_add1(@num)
+	end
+end # end class
 
 puts "------------------------------------"
 wilson = Primary_school_student.new("Wilson",10, "M")
@@ -101,6 +116,10 @@ grace = Student.new("Grace", 17, "M")
 puts "The gender of #{grace.get_name} is #{grace.gender}"
 grace.gender = "W"
 puts "Correction, it is actually #{grace.gender}"
+puts "------------------------------------"
+num = PrimarySchoolChickenCalculator.new(2)
+puts "We have #{num.num} in the Calculator"
+puts "If we use get_more_num, we get #{num.get_more_num}"
 
 =begin
 Expected Output:
@@ -123,5 +142,8 @@ Acca is  years old
 The student name is Grace, 17 years old
 The gender of Grace is M
 Correction, it is actually W
+------------------------------------
+We have 2 in the Calculator
+If we use get_more_num, we get 3
 This concludes Lesson 7
 =end
