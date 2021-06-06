@@ -7,13 +7,12 @@ class MyArray
 		@arr_size = 0 # how many elems in array
 		@arr_maxsize = size # physical size of array
 
-		puts arr
+		puts arr.to_s
 		# Add elems if arr is not empty
 		if arr.size > 0
 			then
 				elem_notint = []
 				for elem in arr do
-					puts "Current elem is #{elem}"
 					# Add integers
 					if is_int(elem)
 						then # Add element to physical array
@@ -120,6 +119,7 @@ class MyArray
 		if is_int(elem)
 			then # If it is integer, do below
 				@arr[@arr_size] = Integer(elem)
+				@arr_size += 1
 				# Check if this elem has a profile in @arr_size
 				if @arr_stats.include?(elem)
 					then # Add info if so
@@ -144,10 +144,10 @@ class MyArray
 	end # end method
 
 	def find(elem)
-		# check if elem in arr
-		if !@arr_stats.include?(elem) then return nil end
-		return @arr_stats[elem]["position"]
-	end # end method
+			# check if elem in arr
+			if !@arr_stats.include?(elem) then return nil end
+			return @arr_stats[elem]["position"]
+		end # end method
 
 	def remove(elem)
 		# Check if elem exist
@@ -165,8 +165,9 @@ class MyArray
 		if elem_pos == @arr_size
 			then right_arr = []
 		else
-			right_arr = @arr[elem_pos..-1]
-		end
+			right_arr = @arr[elem_pos+1..-1]
+		end # end if
+
 		# Remove elem by merging left_arr and right_arr
 		@arr = left_arr.concat(right_arr)
 		@arr << nil
@@ -177,20 +178,18 @@ class MyArray
 		@arr_stats[elem]["count"] -= 1
 		if @arr_stats[elem]["count"] == 0
 			then @arr_stats.delete(elem)
-		else
-			then @arr_stats[elem]["position"] = @arr_stats[elem]["position"][1..-1]
-		end
+		end # end if
+		
 		# Reassign elem position in @arr_stats
-		checked = []
-		for sub_elem in right_arr
-			if checked.include?(sub_elem)
-				temp = @arr_stats[sub_elem]["position"]
-				for i in 0..temp.size
-					if pos > elem_pos then temp[i] -= 1 end # end if
-				end # end for
-				@arr_stats[sub_elem]["position"] = temp
-				checked << sub_elem
-			end # end if
+		# First delete position
+		for key in @arr_stats.keys
+			@arr_stats[key]["position"] = []
+		end # end for
+
+		# Then reassign position
+		for pos in (0..@arr_size-1)
+			curr = @arr[pos]
+			@arr_stats[curr]["position"] << pos
 		end # end for
 
 		# Remove elem from @arr_sorted
@@ -201,43 +200,56 @@ class MyArray
 		return true
 	end # end method
 
+
 	def shuffle
 		# Save the old @arr
 		temp_arr = @arr
 		@arr = Array.new(@arr_maxsize)
-		@arr_stats = {}
-		pos_taken = Array.new(@arr_size)
-		for i in 0..@arr_size do
-			# Generate a new position which is no i nor taken in pos_taken
-			loop do
-				new_pos = rand(0..@arr_size)
-				# There will be a bug if last i has to take the same position if others are taken
-				break if new_pos != i and !pos_taken.include?(new_pos)		
-			end # end loop do
-			# Assign new position
-			@arr[new_pos] = temp_arr[i]
+		# Generate a new position which is no i nor taken in pos_taken
+		shuffle_again = true
+		while shuffle_again
+			shuffle_again = false
+			new_pos = (0..@arr_size-1).to_a.shuffle
+			for i in 0..new_pos.size
+				if new_pos == i
+					then shuffle_again = true
+				end # end if
+			end # end for
+		end # end while
 
-			# Check if this elem has a profile in @arr_size
-			if @arr_stats.include?(elem)
-				then # Add info if so
-					@arr_stats[elem]["count"] += 1
-					@arr_stats[elem]["position"] << @arr_size
-				else
-					@arr_stats[elem] = {}
-					@arr_stats[elem]["count"] = 1
-					@arr_stats[elem]["position"] = [@arr_size]
-			end # end if
+		# Assign new position
+		for i in 0..new_pos.size-1
+			@arr[new_pos[i]] = temp_arr[i]
+		end # end for
+
+		# Reassign elem position in @arr_stats
+		# First delete position
+		for key in @arr_stats.keys
+			@arr_stats[key]["position"] = []
+		end # end for
+
+		# Then reassign position
+		for pos in (0..@arr_size-1)
+			curr = @arr[pos]
+			puts "Current is #{curr} at #{pos}"
+			@arr_stats[curr]["position"] << pos
 		end # end for
 	end # end method
 
-	def reserve
+	def reverse
 		# Set old @arr aside
 		temp_arr = @arr
 		# Redeclare a new array for @arr and @arr_stats
 		@arr = Array.new(@arr_maxsize)
+
+		# First delete position
+		for key in @arr_stats.keys
+			@arr_stats[key]["position"] = []
+		end # end for
+
 		# Make old position to become new postion
-		old_pos = @arr_size - 1
-		for i in 0..@arr_size
+		old_pos = @arr_size-1
+		for i in 0..@arr_size-1
 			curr_elem = temp_arr[old_pos] # Current element
 			@arr[i] = curr_elem # Assign new position
 			# Record the count and position of new position
@@ -254,11 +266,11 @@ class MyArray
 		end # end for
 	end # end method
 
+
 	def print_array
-		for elem in @arr do	
-			if elem != nil then print "#{elem} " end
-		end # end for
-		puts
+		result = []
+		@arr.each{|elem| result << elem unless elem.nil?}
+		puts result.to_s
 	end # end method
 
 	def distinct
@@ -290,11 +302,24 @@ class MyArray
 					 curr_pos += 1
 			end # end if
 		end # end for
-
-
 	end # end method
 
-	def findHCF(arr2)
+
+	def findLargestCommonNumber(arr2)
+		temp = arr2
+		arr2 = []
+		temp.each{|elem2| arr2 << elem2 if elem2.is_a?(Integer)}
+		result = nil
+		for elem in @arr_stats.keys
+			for elem2 in arr2
+				if elem == elem2 and result.nil?
+					then result = elem
+				elsif elem == elem2 and elem > result
+					then result = elem
+				end # end if
+			end # end inner for
+		end # end outer for
+		return result
 	end # end method
 
 	def getMean
@@ -340,6 +365,7 @@ class MyArray
 		end
 		return (sum_value2/(elem_count-1))**0.5
 	end # end method
+	
 
 	# Delete later
 	def print_phycial_array
@@ -359,23 +385,71 @@ class MyArray
 		puts "#{@arr_sorted}"
 	end
 
+	# Delete later
+	def print_all_stats
+		puts @arr_stats.to_s
+	end
+
 end # end class
 
+
 # For testing
+=begin
+puts "Case 1"
 a = MyArray.new(1..21)
+# Add 1
 a.addElement(1)
 a.print_array
-a.print_phycial_array
 a.print_stats(1)
 a.print_sorted
-
+puts a.find(1).to_s
+puts "----------------------------------------"
+# Remove 1
+puts a.remove(1)
+puts a.print_array
+a.print_stats(1)
+a.print_sorted
+a.print_all_stats
+puts "----------------------------------------"
+# Remove second 1
+puts a.remove(1)
+puts a.print_array
+a.print_sorted
+puts "----------------------------------------"
+# Remove 11
+a.remove(11)
+puts a.print_array
+a.print_sorted
+a.print_stats(1)
+a.print_stats(11)
+a.print_stats(10)
+a.print_all_stats
+puts "----------------------------------------"
+puts "Case 2"
 b = MyArray.new([5,1,2,3,4])
 b.print_sorted
-
+b.remove(3)
+b.print_array
+b.print_sorted
+b.shuffle
+b.print_array
+b.print_all_stats
+b.reverse
+b.print_array
+b.print_all_stats
+puts "----------------------------------------"
+=end
+puts "Case 3"
 c = MyArray.new([5,21,12,3,14])
-c.print_sorted
+puts c.getMean
 puts c.getMedian
+puts c.getSD
+puts c.findLargestCommonNumber([3,4,5,6])
+puts "----------------------------------------"
 
+=begin
+puts "Case 4"
 d = MyArray.new([5,21,3,14])
 d.print_sorted
 puts d.getMedian
+=end

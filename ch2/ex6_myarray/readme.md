@@ -14,7 +14,6 @@ The goal of this exercise is to practice more on array, class, an loop by creati
 		<li>reverse</li>
 		<li>print_array</li>
 		<li>distinct</li>
-		<li>repeat</li>
 		<li>findHCF</li>
 		<li>getMean</li>
 		<li>getMedian</li>
@@ -60,8 +59,8 @@ print every integer in string, separate by space. Do not return that string.
 ### distinct
 Remove all repeated element.Decrement arr_size and move all elements after the removed elements one index before to fill the gap, but maintain arr.size equal to arr_maxsize.
 
-### findHCF
-Get an array of integers from an user (Remember to verify this array, drop all non-integers). Find the highest common factor (HCF) between two arrays. Return an integer of HCF. If 1 is the only HCF, return 1 and print this result on the console only if this is the case. 
+### findLargestCommonNumber
+Get an array of integers from an user (Remember to verify this array, drop all non-integers). Find the largest common number between two arrays. If there is no common number, return nil.
 
 ### getMean
 Return the mean of arr using loops, do not use any gem.
