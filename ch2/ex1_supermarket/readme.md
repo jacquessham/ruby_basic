@@ -45,21 +45,161 @@ There are the following personas:
 </ul>
 
 ## How to Use this Program for Personas
-<u>Shopper Purchase Grocery Only, Subtotal > Minimum Delivery Requirement</u><br>
+Shopper Purchase Grocery Only, Subtotal > Minimum Delivery Requirement
+<br>
 The shopper will be able to choose a category of grocery in the main page, and the program will generate a list of items with original price and discounted price. Shopper may choose the item with quantity and place in the basket. Shopper may select check out to check out and end the program.
 <br><br>
-<u>Shopper Purchase Taxable and Non-Taxable Items, Subtotal > Minimum Delivery Requirement</u><br>
+Shopper Purchase Taxable and Non-Taxable Items, Subtotal > Minimum Delivery Requirement
+<br>
 The shopper will be able to choose a category of grocery in the main page, and the program will generate a list of items with original price and discounted price. Shopper may choose the item with quantity and place in the basket. Shopper may select check out to check out and end the program. During the check out process, the program will generate a receipt on the command line and the taxable items will be marked as it would in the real world receipt. The grand total will be added sales tax, but sales tax does not count toward to minimum delivery requirement.
 <br><br>
-<u>Shopper Purchase Items below Minimum Delivery Requirement, and Continue to Shop until the Subtotal Meet Minimum Delivery Requirement</u><br>
+Shopper Purchase Items below Minimum Delivery Requirement, and Continue to Shop until the Subtotal Meet Minimum Delivery Requirement
+<br>
 The shopper will be able to choose a category of grocery in the main page, and the program will generate a list of items with original price and discounted price. Shopper may choose the item with quantity and place in the basket. Shopper may select check out to check out and end the program. During the check out process, the program will notify shopper that the subtotal does not meet minimum delivery requirement and offer shopper to continue to shop, if so, the program will bring the shopper back to the main page and shop until user provoke checkout.
 <br><br>
-<u>Shopper Purchase Items below Minimum Delivery Requirement, but will not Continue to Shop Until the Subtotal Meet Minimum Delivery Requirement</u><br>
+Shopper Purchase Items below Minimum Delivery Requirement, but will not Continue to Shop Until the Subtotal Meet Minimum Delivery Requirement<br>
 The shopper will be able to choose a category of grocery in the main page, and the program will generate a list of items with original price and discounted price. Shopper may choose the item with quantity and place in the basket. Shopper may select check out to check out and end the program. During the check out process, the program will notify shopper that the subtotal does not meet minimum delivery requirement and offer shopper to continue to shop, but when shopper decline, the program will stop.
 <br><br>
-<u>Shopper Select at least One Item but Leave without any Purchase</u><br>
-(Coming Soon...)
 
 
-## Methods in the Script (Coming Soon...)
 
+## Methods in the Script 
+### Import Information
+get_info
+<br>
+Required parameter:
+<br>
+filename: Text file contains Supermarket infomation, including name, address, minimum delivery requirement, sales tax rate (May use <i>acca_supermarket.txt</i> in the folder)
+<br>
+Description: Method to read file to get supermarket infomation, including name, address, minimum delivery requirement, sales tax rate and return hash.
+<br><br>
+get_taxables
+<br>
+Required parameter:
+<br>
+filename - CSV file contains what categories are taxable (May use <i>taxable_ca.csv</i> in the folder)
+<br>
+Description: Method to read file to get what categories are taxable, and return hash.
+<br><br>
+get_price
+<br>
+Required parameter:
+<br>
+filename: CSV file contains what products sold in the supermarket, along its categories and price. (May use <i>price_list.csv</i> and <i>price_discountlist.csv</i> in the folder)
+<br>
+Description: Method to read file to get what products sold in the supermarket, along its categories and price. It will return a hash. It may be used to obtain both regular and discounted price of products sold in supermarket.
+<br>
+The hash structure looks like this:
+```
+- prod_list (hash)
+| - category1 (key, string)
+| - | -- product1 (key, string), 
+| - | -- | -- price (value, float)
+| - | -- product2 (key, string)
+| - | -- | -- price (value, float)
+| - category2 (key, string)
+| - | -- product3 (key, string), 
+| - | -- | -- price (value, float)
+| - | -- product4 (key, string)
+| - | -- | -- price (value, float)
+```
+### Helper Function for formating
+title_str
+<br>
+Required parameter:
+<br>
+str: String need to be titlized, may contain more than one word
+<br>
+Description: Capitalize the first letter of each word in the string, return string
+
+### Program Functionalities
+generate_menu
+<br>
+Required parameter:
+<ul>
+	<li>options_arr: Hash of categories or products of selected category</li>
+	<li>main: Whether this is for main page, if true, 0 is checkout, 1 is back. Default is true</li>
+	<li>price_reg: Hash of products with regular price</li>
+	<li>price_discount: Hash of products with discount price</li>
+</ul>
+<br>
+Description: Receive a list of categories or products of selected category and format a string to print on console. Return a hash contains: 1. Valid options (List of integers), 2. String to be print on console.
+
+<br><br>
+get_selection
+<br>
+Required parameter:
+<ul>
+	<li>valid_opts: List of valid integers for users, received in generate_menu</li>
+	<li>menu: The formatted string of menu to print on console, received in generate_menu</li>
+</ul>
+<br>
+Description: Print the menu string on console and ask user to choose one of the options in valid_opts, if the input is not valid, it give users 5 more times to enter a valid input. If not, the method will bring back to main page.
+
+<br><br>
+add_basket
+<br>
+Required parameter:
+<ul>
+	<li>category: Category of the product selected, it will become the key in basket</li>
+	<li>product: Product selected</li>
+	<li>price: Checkout price of the product selected</li>
+	<li>basket: Basket (Hash)</li>
+</ul>
+<br>
+Description: Notify what product the user selected, then ask user to enter the quantity to be placed into basket. If the input is not valid, it give users 5 more times to enter a valid input. If not, the method will bring back to main page. Once the quantity is entered, it will saved in the basket (hash), and return the basket.
+
+The hash structure looks like this:
+```
+- basket (hash)
+| - category1 (key, string)
+| - | -- product1 (key, string), 
+| - | -- | -- price (value, float)
+| - | -- product2 (key, string)
+| - | -- | -- price (value, float)
+| - category2 (key, string)
+| - | -- product3 (key, string), 
+| - | -- | -- price (value, float)
+| - | -- product4 (key, string)
+| - | -- | -- price (value, float)
+```
+<br><br>
+choose_product
+<br>
+Required parameter:
+<ul>
+	<li>category: User's choice of category</li>
+	<li>price_reg: Hash of products with regular price</li>
+	<li>price_discount: Hash of products with discount price</li>
+	<li>basket: Basket (Hash)</li>
+</ul>
+<br>
+Description: Method to help user to place product in the basket. It will call generate_menu and get_selection to print menu on console and ask user to choose from the list. Then, it will record the selection in the basket by calling add_basket.
+
+<br><br>
+show_basket
+<br>
+Required parameter:
+<br>
+basket 
+<br>
+Description: Print the selections in the basket with formatted string. The formatted string is built in this method.
+
+<br><br>
+checkout
+<br>
+Required parameter:
+<ul>
+	<li>basket: Basket (Hash)</li>
+	<li>taxables: List of categories is taxable (Hash)</li>
+	<li>tax: Sales tax rate</li>
+	<li>min_delivery: Minimum Delivery Requirement</li>
+	<li>delivery_fee: Delivery Fee</li>
+</ul>
+<br>
+Description: Provoke the checkout process, it will follow procedures in How to Use this Program for Personas. If it is successfully checkout, it will print a message and end the while loop in main method.
+
+<br><br>
+
+### Main Method
+When the main method is called, it will obtain the supermarket information (get_info), products with regular price (get_price), products with discounted price (get_price), and taxable categories (get_taxables). Then, it will declare a hash for basket and will enter a while loop. The user will select product and quantity each loop until he select checkout.
