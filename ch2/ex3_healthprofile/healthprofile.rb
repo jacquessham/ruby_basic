@@ -43,6 +43,7 @@ class HealthProfile
 		str += "Weight: #{@weight}\n"
 		str += "Target Heart Rate Range: #{@targetHeartRateRange}\n"
 		str += "BMI: #{@bmi}"
+		return str
 	end # end method
 end # end class
 
