@@ -1,44 +1,66 @@
 class Calculator
 	def initialize(num1=nil, num2=nil, mode=nil)
+		if mode != "Statistics"
+			then num1 = Float(num1) rescue nil
+				 num2 = Float(num2) rescue nil
+		end
 		@num1 = num1
 		@num2 = num2
 		@mode = mode
 	end # end constructor
 
 	def calculate
-		if @mode == nil then return nil end
+		if @num1 == nil or @num2 == nil then return nil end
+		if @mode == nil 
+			then return nil 
+		elsif !["+","-","*","/"].include?(@mode)
+			then return nil
+		end
 		return @num1.method(@mode).(@num2)
 	end
 end # end class
 
 class Distance < Calculator
 	def initialize(num1, num2)
+		# Check if num1 and num2 are array
+		if !num1.kind_of?(Array) then num1 = nil end
+		if !num1.kind_of?(Array) then num2 = nil end
+		# Check if num1 and num2 only contains number
+		if num1.kind_of?(Array) and num1.size != 2 then num1 = nil end
+		if num2.kind_of?(Array) and num2.size != 2 then num1 = nil end
 		# num1 = (x1, x2), num2 = (y1, y2)
 		super(num1, num2)
 	end # end constructor
 
 	def calculate
+		if @num1 == nil or @num2 == nil then return nil end
 		return ((@num2[1]-@num1[1])**2+(@num2[0]-@num1[0])**2)**0.5
 	end # end function
 end # end class
 
 class BasicOperations < Calculator
 	def initialize(num1, num2, mode)
+		num1 = Float(num1) rescue 0
+		num2 = Float(num2) rescue 0
 		# Need to convert string to +-*/ later
 		if !["+","-","*","/"].include?(mode)
 			then puts "Invalid mode, converting to +"; mode="+"
+		end # end if
 		super
-		end # end if 
 	end # end constructor
 end # end class
 
 class Statistics < Calculator
 	def initialize(nums)
-		# Need to check if all elements in nums are integers
-		super(nums) # num1 is now to store array
+		# Check if nums is array
+		if !nums.kind_of?(Array) then nums = [] end
+		refined_nums = []
+		nums.each{|elem| refined_nums << elem if elem.kind_of?(Integer)}
+		super(refined_nums,nil,"Statistics") # num1 is now to store array
 	end # end constructor
 
 	def calculate
+		if @num1.size == 0 then return nil end
 		result = {}
 		total = 0.0
 		min = 0
@@ -81,7 +103,7 @@ class FuelCost < Calculator
 	end # end constructor
 
 	def calculate
-		if @num2 == 0 or @num2 == nil then return nil end
+		if @num1 == 0 or @num2 == 0 or @num2 == nil then return nil end
 		return @num1*@num3/@num2
 	end
 end # end for
@@ -90,20 +112,31 @@ class GeoCalculator < Calculator
 	def initialize(mode=nil, num1=nil, num2=nil, num3=nil)
 		if mode != nil then mode = mode.downcase end
 		if mode == "cube"
-			then super(num1, nil, mode)
+			then num1 = Float(num1) rescue 0
+				 super(num1, nil, mode)
 		elsif mode == "cuboid"
-			then super(num1, num2, mode); @num3 = num3
+			then num1 = Float(num1) rescue 0
+				 num2 = Float(num2) rescue 0
+				 num3 = Float(num3) rescue 0
+				 super(num1, num2, mode); @num3 = num3
 		elsif mode == "sphere"
-			then super(num1, nil, mode)
+			then num1 = Float(num1) rescue 0
+				 super(num1, nil, mode)
 		elsif mode == "cone"
-			then super(num1, num2, mode) # num1 = r, num2 = h
+			then num1 = Float(num1) rescue 0
+				 num2 = Float(num2) rescue 0
+				 super(num1, num2, mode) # num1 = r, num2 = h
 		elsif mode == "square pyramid"
-			then super(num1, num2, mode) # num1 = l, num2 = h
+			then num1 = Float(num1) rescue 0
+				 num2 = Float(num2) rescue 0
+				 super(num1, num2, mode) # num1 = l, num2 = h
 		elsif mode == "cylinder"
-			then super(num1, num2, mode) # num1 = r, num2 = h
+			then num1 = Float(num1) rescue 0
+				 num2 = Float(num2) rescue 0
+				 super(num1, num2, mode) # num1 = r, num2 = h
 		else # All else become cube
 			puts "Unknown Mode received"
-			super(num1, num2, mode)
+			super(0, 0, nil)
 		end # end if
 	end # end constructor
 
@@ -128,7 +161,7 @@ class GeoCalculator < Calculator
 			# num1 = r, num2 = h
 			then volume = Math::PI*(@num1**2)*@num2
 				 surface_area = 2.0*Math::PI*@num1*@num2 + 2.0*Math::PI*@num1**2
-		else # All else become cube
+		else # All else will return nil
 			volume = nil
 			surface_area = nil
 		end # end if
@@ -148,6 +181,7 @@ puts "Super class: #{supercalculator.calculate}"
 distance = Distance.new([0,0],[1,1])
 puts "Distance: #{distance.calculate}"
 
+
 # Test Statistics
 stats = Statistics.new([0,4,7,13,15,28])
 stats_results = stats.calculate
@@ -156,6 +190,7 @@ puts "Statistics minimum: #{stats_results["minimum"]}"
 puts "Statistics maximum: #{stats_results["maximum"]}"
 puts "Statistics median: #{stats_results["median"]}"
 puts "Statistics standard deviation: #{stats_results["standard_deviation"]}"
+
 
 # Test Fuel Cost
 fuelcost = FuelCost.new(60,30,2)
