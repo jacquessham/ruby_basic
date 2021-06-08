@@ -17,4 +17,4 @@ The exercise is to build an interactive program for user to guess a number rando
 This exercise is to build a program to simulate a crap game and show the result. The goal is to practice more loops and conditional by building a Craps simulator.Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex5_craps">here</a> for more detail.
 
 ## Exercise 6: MyArray
-The goal of this exercise is to practice more on array, class, an loop by creating a class similiar to <i>ArrayList</i> in Java. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex6_myarray">here</a> for more detail.
+This exercise is to build a class to store an array of integers and provide some basic math and statistics functionality. The goal of this exercise is to practice more on array, class, an loop by creating a class similiar to <i>ArrayList</i> in Java. Click <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch2/ex6_myarray">here</a> for more detail.
