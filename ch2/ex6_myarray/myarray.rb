@@ -7,7 +7,6 @@ class MyArray
 		@arr_size = 0 # how many elems in array
 		@arr_maxsize = size # physical size of array
 
-		puts arr.to_s
 		# Add elems if arr is not empty
 		if arr.size > 0
 			then
@@ -44,7 +43,6 @@ class MyArray
 						puts elem_notint
 				end # end if
 		end # end if
-
 	end # end constructor
 
 	
@@ -231,9 +229,9 @@ class MyArray
 		# Then reassign position
 		for pos in (0..@arr_size-1)
 			curr = @arr[pos]
-			puts "Current is #{curr} at #{pos}"
 			@arr_stats[curr]["position"] << pos
 		end # end for
+		return true
 	end # end method
 
 	def reverse
@@ -264,6 +262,7 @@ class MyArray
 			end # end if
 			old_pos -= 1 # move on to next element
 		end # end for
+		return true
 	end # end method
 
 
@@ -292,16 +291,17 @@ class MyArray
 		curr_pos = 0 # To keep track which index added to @arr
 		# Loop over temp_arr
 		for elem in temp_arr do
-			if !checked.include?(elem)
-				then @arr << elem
+			if !checked.include?(elem) and elem.kind_of?(Integer)
+				then @arr[curr_pos] = elem
 					 @arr_stats[elem] = {}
-					 @arr_stats[elem][postion] = 1
-					 @arr_stats[elem][postion] = [curr_pos]
+					 @arr_stats[elem]["count"] = 1
+					 @arr_stats[elem]["postion"] = [curr_pos]
 					 add_arr_sort(elem)
 					 checked << elem
 					 curr_pos += 1
 			end # end if
 		end # end for
+		return true
 	end # end method
 
 
@@ -319,6 +319,7 @@ class MyArray
 				end # end if
 			end # end inner for
 		end # end outer for
+		if result == nil then puts "No Common number found" end
 		return result
 	end # end method
 
@@ -334,13 +335,13 @@ class MyArray
 	end # end method
 
 	def getMedian
-		if @arr_size == 0 then return 0 
-		elsif @arr_size == 1 then return arr[0] end
+		if @arr_size == 0 then return 0.0 
+		elsif @arr_size == 1 then return arr[0].to_f end
 
 		if @arr_size % 2 ==1
 			then
 				target_index = Integer(@arr_size/2)
-				return @arr_sorted[target_index]
+				return @arr_sorted[target_index].to_f
 		end # end if
 
 		target_index_low = Integer(@arr_size/2) - 1
@@ -365,80 +366,39 @@ class MyArray
 		end
 		return (sum_value2/(elem_count-1))**0.5
 	end # end method
-	
-
-	# Delete later
-	def print_phycial_array
-		for elem in @arr do	
-			if elem != nil then print "#{elem} " else print "nil " end
-		end # end for
-		puts
-	end
-
-	# Delete later
-	def print_stats(elem)
-		puts @arr_stats[elem]
-	end
-
-	# Delete later
-	def print_sorted
-		puts "#{@arr_sorted}"
-	end
-
-	# Delete later
-	def print_all_stats
-		puts @arr_stats.to_s
-	end
-
 end # end class
 
 
 # For testing
-=begin
 puts "Case 1"
 a = MyArray.new(1..21)
 # Add 1
 a.addElement(1)
 a.print_array
-a.print_stats(1)
-a.print_sorted
 puts a.find(1).to_s
 puts "----------------------------------------"
 # Remove 1
 puts a.remove(1)
 puts a.print_array
-a.print_stats(1)
-a.print_sorted
-a.print_all_stats
 puts "----------------------------------------"
 # Remove second 1
 puts a.remove(1)
 puts a.print_array
-a.print_sorted
 puts "----------------------------------------"
 # Remove 11
 a.remove(11)
 puts a.print_array
-a.print_sorted
-a.print_stats(1)
-a.print_stats(11)
-a.print_stats(10)
-a.print_all_stats
 puts "----------------------------------------"
 puts "Case 2"
 b = MyArray.new([5,1,2,3,4])
-b.print_sorted
 b.remove(3)
 b.print_array
-b.print_sorted
 b.shuffle
 b.print_array
-b.print_all_stats
 b.reverse
 b.print_array
-b.print_all_stats
 puts "----------------------------------------"
-=end
+
 puts "Case 3"
 c = MyArray.new([5,21,12,3,14])
 puts c.getMean
@@ -447,9 +407,24 @@ puts c.getSD
 puts c.findLargestCommonNumber([3,4,5,6])
 puts "----------------------------------------"
 
-=begin
 puts "Case 4"
 d = MyArray.new([5,21,3,14])
-d.print_sorted
+puts d.find(5)
+puts d.remove(5)
+d.print_array
+d.shuffle
+d.print_array
+puts "----"
+d.reverse
+d.print_array
+d.addElement(3)
+d.addElement(3)
+d.print_array
+puts "----"
+d.distinct
+d.print_array
+puts "----"
+puts d.findLargestCommonNumber([5])
+puts d.getMean
+puts d.getSD
 puts d.getMedian
-=end
