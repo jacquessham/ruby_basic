@@ -491,7 +491,7 @@ Alphabetically increasing strings can also be iterated in a proper pattern in ra
 ## Lesson 16: Date/Time (Coming Soon..)
 Reference: <a href="https://www.rubyguides.com/2015/12/ruby-time/">here</a>
 
-## Lesson 17: Numbers,Math & Statistics(Under Construction...)
+## Lesson 17: Numbers and Math
 File for this lesson: <i>num.rb</i>
 <br><br>
 Useful standard package:
@@ -499,7 +499,7 @@ Useful standard package:
 	<li>math</li>
 	<li>mathn</li>
 	<li>prime</li>
-	<li>cmath</li>
+	<li>rational</li>
 </ul>
 <br>
 math is a standard library to support any kind of mathematically expression, including squart root, natural log...etc. mathn is a newer version, but rely on math, to handle more flexible situations, like return an integer when square rooting an integer (It is not supported in math). Matrices is supported under mathn. To check whether a integer is a prime number, use the Prime gem, its instances contains the prime numbers. Use <b>prime?</b> to check whether the number is a prime number.

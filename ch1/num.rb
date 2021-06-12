@@ -2,6 +2,10 @@ require 'rational'
 require 'mathn'
 
 
+# Begin and end statment
+BEGIN{puts"This is Lesson 17, we are going over Numbers and Math in Ruby"}
+END{puts"This concludes Lesson 17"}
+
 num1 = Rational(2,3)
 puts "#{num1} becomes #{num1.to_f}"
 num2 = Math::sqrt(Rational(2,3))
