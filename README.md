@@ -23,10 +23,11 @@ This chapter is going to go over the very basic syntax in Ruby. This chapter goi
 	<li>Array</li>
 	<li>Class</li>
 	<li>Inputs and Outputs</li>
-	<li>Try statement</li>
+	<li>Try and Catch statement</li>
 	<li>Hash</li>
 	<li>Strings</li>
-	<li></li>
+	<li>Numbers, Data, Time</li>
+	<li>Random</li>
 </ul>
 
 <br>

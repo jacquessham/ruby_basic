@@ -14,7 +14,7 @@ puts "--------------------------------------------"
 
 # Try read first_file.txt
 puts "Now Try to read a file."
-file1_name = "first_file.txt"
+file1_name = "../Data/first_file.txt"
 file1 = File.new(file1_name,"r")
 
 if file1 then
@@ -41,7 +41,7 @@ puts "--------------------------------------------"
 
 # Now save a text file with a number on each line
 puts "Let's save a file with 0-9 on each line"
-file2_name = "second_line.txt"
+file2_name = "../Data/second_line.txt"
 file2 = File.new(file2_name,"w")
 if file2 then
 	for i in 0..9 do 

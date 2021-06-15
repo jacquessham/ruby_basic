@@ -6,7 +6,7 @@ BEGIN{puts "This is Lesson 9, we are going Loading and Saving Data for Specific 
 END{puts "This concludes Lesson 9"}
 # Write a csv file first
 puts "Now saving a csv file..."
-CSV.open("numbers.csv","w") do |csv_file|
+CSV.open("../Data/numbers.csv","w") do |csv_file|
 	# Add headers
 	csv_file << ["numbers","squared_numbers"]
 	for i in 1..10
@@ -36,7 +36,7 @@ nums = {}
 for i in 1..10
 	nums[i] = {"2": i**2, "3": i**3}
 end # End for loop
-File.write("numbers.json", JSON.dump(nums))
+File.write("../Data/numbers.json", JSON.dump(nums))
 puts "json file saved!"
 
 # Read the json file just saved
@@ -51,7 +51,7 @@ end # End for loop
 puts "Now save the json file in prettier format, and it looks like:"
 pretty_str = JSON.pretty_generate(nums_dict)
 puts pretty_str
-File.write("numbers_pretty.json", pretty_str)
+File.write("../Data/numbers_pretty.json", pretty_str)
 
 =begin
 Expected Outcome:
