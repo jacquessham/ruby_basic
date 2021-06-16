@@ -40,6 +40,19 @@ puts "arr = " + arr_str + " becomes "
 puts "#{arr}"
 puts "The size of arr is #{arr.size}"
 puts "----------------------------------------"
+arr14 = %w{Britain France Spain}
+puts "I have declare an array: #{arr14}"
+puts "----------------------------------------"
+arr15 = [2,5,6,9]
+puts "I have an array of numbers and I going to print it:"
+arr15.each{|num| puts num}
+puts "To print it clear:"
+arr15.each_with_index do |num, i|
+	puts "At position #{i+1}, we have #{num}"
+end
+puts "Or print reversely:"
+arr15.reverse_each{|num| puts num}
+puts "----------------------------------------"
 
 # Another ways to declare new arrays
 puts "To create a 20-elements-array:"
@@ -160,6 +173,27 @@ puts "----------------------------------------"
 arr10 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 puts "After #{arr10} is transpose:"
 puts "#{arr10.transpose}"
+puts "----------------------------------------"
+
+# Spliting an array
+arrA, arrB, arrC = arr10
+puts "I split arr10 into 3 arrays"
+puts "array A: #{arrA}"
+puts "array B: #{arrB}"
+puts "array C: #{arrC}"
+puts "----------------------------------------"
+
+# Remove duplicates
+arr16 = [1,1,1,1,1,2,3]
+puts "I have arr16: #{arr16}"
+puts "After I have removed the duplicated elements, it becomes: #{arr16.uniq!}"
+puts "----------------------------------------"
+
+# Reverse
+arr17 = [9,8,7]
+puts "I have arr16: #{arr16}"
+puts "After I have reverse the array, it becomes: #{arr17.reverse}"
+
 
 =begin
 This is Lesson 6, we are going over arrays in Ruby
