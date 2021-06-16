@@ -2,60 +2,29 @@
 
 ## Lesson 1: Hello World!
 File for this lesson: <i>helloworld.rb</i>
+<br>
+It can be found in the [Lesson 1 folder](/lesson1).
 <br><br>
-In Ruby, <b>puts</b> is the print statement. Same as <b>print</b> in Python.
+In Ruby, <b>puts</b> is the print statement. Same as <b>print</b> in Python. To print statement without next line, you may use <b>print </b>.
 
 
 ## Lesson 2: Declaring a Variable, Comment Blocks and BEGIN and END Statments
 File for this lesson: <i>begin_end.rb</i>
+<br>
+It can be found in the [Lesson 2 folder](/lesson2).
 <br><br>
-Declaring a variable in Ruby is the same as you do in Python, for example:
-```
-my_num = 1
-```
-
-<br><br>
-
-Comment Blocks in Ruby is similar to the one in Python: Use # in the begining of the comment. However, the multi-lines comment block is different: Use <b>=begin</b> and <b>=end</b>. For example:
-```
-# This is a comment line
-
-=begin
-This is a comment block
-=end
-```
-
-<br><br>
-BEGIN and END statements are statements that have the program to do either in the begining or the end of the program, regardless where you place the statement in the script. The syntax starts with either <b>BEGIN</b> or <b>END</b> and followed by <b>{}</b>, which stores the commands like Java. For example:
-```
-END{
-   puts "End of this script.""
-}
-BEGIN{
-   puts "Begining of this script"
-}
-```
+Declaring a variable in Ruby is the same as you do in Python, for example: <b>my_num = 1</b>
+<br>
+Use <b>=begin</b> and <b>=end</b> to comment a block of string, and <b>BEGIN</b> and <b>END</b> followed by <b>{}</b> to make the script to run these blocks of code in the beginning and at the end of the script, respectively.
 
 ## Lesson 3: Print
 File for this lesson: <i>printing.rb</i>
+<br>
+It can be found in the [Lesson 3 folder](/lesson3).
 <br><br>
-<b>puts</b> is a printing function in Ruby, the same as <b>print()</b> in Python or <b>System.out.println()</b> in Java. <b>print</b> also prints in Ruby but it does not skip to next line after <b>print</b> is executed. In Ruby, there is no need to wrap the string with () for the printing strings. To print a variable in a string or a math calculating, wrap the variable or math calculation with <b>#{}</b>. For example:
-
-```
-put "To print a string"
-print "To print a string without skipping a line"
-
-# To print variable or math calculation in a string
-apple = 3
-puts "There are #{apple} apples"
-# It will print: There are 3 apples
-
-puts "1 + 1 equals to #{1+1}."
-# It will print: 1 + 1 equals to 2.
-```
-
+<b>puts</b> is a printing function in Ruby, the same as <b>print()</b> in Python or <b>System.out.println()</b> in Java. <b>print</b> also prints in Ruby but it does not skip to next line after <b>print</b> is executed. In Ruby, there is no need to wrap the string with () for the printing strings. To print a variable in a string or a math calculating, wrap the variable or math calculation with <b>#{}</b>. 
 <br><br>
-Note that <b>#{}</b> only works in a string with double quotation, it will not calculate anything or pass any variable if <b>#{}</b> is put into a string with single quotation.
+Using <b>'%.2f' % (variable)</b> is one of the ways to round decimals, similar to F-string in Python.
 
 ## Lesson 4: Method
 File for this lesson: <i>use_methods.rb</i>
