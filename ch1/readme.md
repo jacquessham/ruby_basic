@@ -3,7 +3,7 @@
 ## Lesson 1: Hello World!
 File for this lesson: <i>helloworld.rb</i>
 <br>
-It can be found in the [Lesson 1 folder](/lesson1).
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson1">Lesson 1 Folder</a>.
 <br><br>
 In Ruby, <b>puts</b> is the print statement. Same as <b>print</b> in Python. To print statement without next line, you may use <b>print </b>.
 
@@ -11,7 +11,7 @@ In Ruby, <b>puts</b> is the print statement. Same as <b>print</b> in Python. To 
 ## Lesson 2: Declaring a Variable, Comment Blocks and BEGIN and END Statments
 File for this lesson: <i>begin_end.rb</i>
 <br>
-It can be found in the [Lesson 2 folder](/lesson2).
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson2">Lesson 2 Folder</a>.
 <br><br>
 Declaring a variable in Ruby is the same as you do in Python, for example: <b>my_num = 1</b>
 <br>
@@ -20,7 +20,7 @@ Use <b>=begin</b> and <b>=end</b> to comment a block of string, and <b>BEGIN</b>
 ## Lesson 3: Print
 File for this lesson: <i>printing.rb</i>
 <br>
-It can be found in the [Lesson 3 folder](/lesson3).
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson3">Lesson 3 Folder</a>.
 <br><br>
 <b>puts</b> is a printing function in Ruby, the same as <b>print()</b> in Python or <b>System.out.println()</b> in Java. <b>print</b> also prints in Ruby but it does not skip to next line after <b>print</b> is executed. In Ruby, there is no need to wrap the string with () for the printing strings. To print a variable in a string or a math calculating, wrap the variable or math calculation with <b>#{}</b>. 
 <br><br>
@@ -28,6 +28,8 @@ Using <b>'%.2f' % (variable)</b> is one of the ways to round decimals, similar t
 
 ## Lesson 4: Method
 File for this lesson: <i>use_methods.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson4">Lesson 4 Folder</a>.
 <br><br>
 Functions are called <b>Methods</b> in Ruby. The syntax starts by <b>def</b> and end with <b>end</b>, like below:
 
@@ -65,6 +67,8 @@ If you use <b>break</b> in the method, the method will stop immediately.
 
 ## Lesson 5: Loops & If-else Statement
 File for this lesson: <i>loops.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson5">Lesson 5 Folder</a>.
 <br><br>
 There are 4 kinds of loops in Ruby:
 <ul>
@@ -150,7 +154,7 @@ end
 ## Lesson 6: Array
 File for this lesson: <i>use_array.rb</i>
 <br>
-It can be found in the [Lesson 6 folder](/lesson6).
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson6">Lesson 6 Folder</a>.
 <br><br>
 These are the style of syntax to declare arrays in Ruby. Arrays are 0-based and do not have a fixed size like Java.
 <br>
@@ -178,6 +182,8 @@ See the [Lesson 6 folder](/lesson6) for more functionality about array.
 
 ## Lesson 7: Class
 File for this lesson: <i>use_class.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson7">Lesson 7 Folder</a>.
 <br><br>
 This is how a class is defined:
 ```
@@ -242,6 +248,8 @@ This file has 1 parent class <b>Student</b>, along with 2 subclasses <b>Primary_
 ## Lesson 8: Inputs and Outputs
 Files for this lesson: <i>gets.rb</i> and <i>first_file.txt</i>.<br>
 In the end of the lesson, you will receive <i>second_file.txt</i>.
+<br>
+It can be found in the <a href="">Lesson 8 Folder</a>.
 <br><br>
 Here is the code to ask users for input:
 ```
@@ -268,6 +276,8 @@ List of mode:
 ## Lesson 9: Loading and Saving Data for Specific Format (CSV, JSON)
 Files for this lesson: <i>gets_v2.rb</i>.<br>
 In the end of the lesson, you will receive <i>numbers.csv</i> and <i>numbers.json</i>.
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson8">Lesson 9 Folder</a>.
 <br><br>
 Packages required:
 <ul>
@@ -310,6 +320,8 @@ nums_dict = JSON.parse(json_file)
 ## Lesson 10: Files and Folder Management
 Files for this lesson: <i>delete.rb</i>.
 <br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson10">Lesson 10 Folder</a>.
+<br>
 During the lesson, you would received a text file <i>no_use.txt</i> and a directory <i>Testing</i>. But both the file and the directory will be deleted before the script ends.
 <br><br>
 Packages required: <b>fileutils</b>
@@ -320,7 +332,9 @@ To create a new directory, use <b>Dir.mkdir(directory_name)</b> to do so. If you
 
 ## Lesson 11: Try statement
 Files for this lesson: <i>try_rescue.rb</i> and <i>first_file.txt</i>
-
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson11">Lesson 11 Folder</a>.
+<br><br>
 ```
 begin  # Same as try in Python/Java
     # Do something
@@ -341,6 +355,8 @@ user_input = Integer(gets.chomp) rescue # Do something when an error occur
 
 ## Lesson 12: Hash
 Hash is the Ruby version of dictionary in Python. File for this lesson: <i>try_hash.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson12">Lesson 12 Folder</a>.
 <br>
 <br>
 ```
@@ -363,11 +379,15 @@ v1 = mydict['k1']
 ```
 ## Lesson 13: Random
 File for this lesson: <i>try_random.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson13">Lesson 13 Folder</a>.
 <br><br>
 Random is a standard gem in Ruby and used to randomly generate integers or a float number. Use <b>rand</b> to generate a float number between 0 and 1. To generate an integer between a and b, use <b>rand(a..b)</b>, note that you should put a range betwen a and b, not a comma b. If you have an array, you may call a method on the array with <b>.sample</b> to randomly pick an element from the array, or use <b>.sample(n)</b> to pick n elements from the array.
 
 ## Lesson 14: Data Type Convertion
 File for this lesson: <i>conversion.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson14">Lesson 14 Folder</a>.
 <br><br>
 Below is the list to convert between data types:
 <ul>
@@ -383,6 +403,9 @@ Below is the list to convert between data types:
 
 ## Lesson 15: Strings 
 File for this lesson: <i>try_string.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson15">Lesson 15 Folder</a>.
+<br><br>
 Simply assign a string by variable equal string wrapped with quotation. Here are some useful string method:
 <ul>
 	<li>slice(pos,range): Extract a substring, starting at position <i>pos</i> until following <i>range</i> characters, str[pos,range] is the same as str.slice(pos,range). Alternatively, str[regex] also works, pos also works with a negative number (-1 means last character in the string)</li>
@@ -419,6 +442,8 @@ Alphabetically increasing strings can also be iterated in a proper pattern in ra
 
 ## Lesson 16: Date/Time
 File for this lesson: <i>datetime.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson16">Lesson 16 Folder</a>.
 <br><br>
 Useful standard package:
 <ul>
@@ -479,6 +504,8 @@ Reference: <a href="https://www.rubyguides.com/2015/12/ruby-time/">here</a>
 
 ## Lesson 17: Numbers and Math
 File for this lesson: <i>num.rb</i>
+<br>
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson17">Lesson 17 Folder</a>.
 <br><br>
 Useful standard package:
 <ul>
