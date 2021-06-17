@@ -76,80 +76,16 @@ There are 4 kinds of loops in Ruby:
 	<li>For Loop</li>
 	<li>Do..while Loop</li>
 	<li>Until Loop</li>
+	<li>Loop..do Loop</li>
 </ul>
 
 <br><br>
-And will also going over the following function:
+And will also going over in the lesson folder for the following function:
 <ul>
 	<li>If-else Statement</li>
 	<li>Case Statement</li>
 </ul>
 
-### While Loop
-```
-curr = 0
-while curr < 6 do
-	# Do something
-	curr += 1
-end
-
-while true do
-	# Do something
-	curr += 1
-	break if curr > 10
-end
-```
-
-### For Loop
-```
-for n in 0..10 do
-	# Do something
-end
-
-arr = ['a','b','c']
-for ch in arr do
-	# Do something
-end
-```
-
-### Do..while Loop
-```
-loop do
-	# Do something
-	break if # Something
-end
-```
-
-### Until Loop
-```
-num = 0
-until num == 5 do
-	puts num+1
-	num += 1
-end
-```
-
-Note: In the above, it will print 0,1,2,3,4
-
-### Iteration Switch
-Ruby also break the loop or skip an iteration. To skip an iteration, use <b>next</b>, the loop will process to the next ieteration immediately. This is the same as <i>continue</i> in Python. Use <b>break</b> to end the loop immediately, the loop will no longer iterating. <b>break</b> can also used in methods, if so, the method will stop immediately.
-
-### If-else Statement
-```
-if (condition) then (statement)
-elsif (condition) then(statement)
-else (statement)
-end
-```
-
-### Case Statement
-```
-case
-	when (condition) then (statement)
-	when (condition) then (statement)
-	else (statement)
-end
-```
 
 ## Lesson 6: Array
 File for this lesson: <i>use_array.rb</i>
@@ -335,22 +271,7 @@ Files for this lesson: <i>try_rescue.rb</i> and <i>first_file.txt</i>
 <br>
 It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson11">Lesson 11 Folder</a>.
 <br><br>
-```
-begin  # Same as try in Python/Java
-    # Do something
-    raise Exception # Or raise "Message"
-rescue # Same as except in Python/ catch in Java
-    # Do something, occurs when an error occur
-ensure # Execute regardless an error occur
-    # Do something
-end 
-```
-
-If you want to try an error when user enter a wrong data type, you may add <b>rescue</b> after the user input function like below:
-
-```
-user_input = Integer(gets.chomp) rescue # Do something when an error occur
-```
+The try statement keywords are <b>begin</b> to try an code block, <b>rescue</b> to handle an error, and <b>ensure</b> to run regardless any error was threw. <b>rescue</b> may also use to handle if data convertion failed.
 
 
 ## Lesson 12: Hash
@@ -398,7 +319,6 @@ Below is the list to convert between data types:
 	<li>Float(string): Convert a float string to float</li>
 	<li>to_sym: Convert string to symbol</li>
 	<li>to_s: Convert integer/float/array/symbol to string</li>
-
 </ul>
 
 ## Lesson 15: Strings 
@@ -406,38 +326,19 @@ File for this lesson: <i>try_string.rb</i>
 <br>
 It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson15">Lesson 15 Folder</a>.
 <br><br>
-Simply assign a string by variable equal string wrapped with quotation. Here are some useful string method:
+There are several common string methods, but more methods may be found in the folder:
 <ul>
-	<li>slice(pos,range): Extract a substring, starting at position <i>pos</i> until following <i>range</i> characters, str[pos,range] is the same as str.slice(pos,range). Alternatively, str[regex] also works, pos also works with a negative number (-1 means last character in the string)</li>
-	<li>count("substring"): Count the frequency of substring</li>
-	<li>length: Number of characters in this string</li>
-	<li>upcase: Convert all characters into uppercase</li>
-	<li>upcase!: Convert all characters into uppercase, and reassign to the variable</li>
-	<li>downcase: Convert all characters into lowercase, ! available to reassign variable</li>
-	<li>swapcase: Convert all characters to opposite case, ! available to reassign variable</li>
-	<li>capitalize: Convert the first letter to uppercase, ! available to reassign variable</li>
-	<li>strip: Remove begining and ending whitespace</li>
-	<li>lstrip: Remove begining whitespace</li>
-	<li>rstrip: Remove ending whitespace</li>
-	<li>ord: Convert character to ASCII code</li>
-	<li>chr(Use for number): Convert a number from ASCII code to character</li>
-	<li>reverse: Reverse the order of characters in the string, ! available to reassign variable</li>
-	<li>split("substring"): Split a string into array, separate by substring</li>
-	<li>join("substring")(Use for array): Join all elements in an array to a string, each element is join by substring</li>
+	<li>length</li>
+	<li>upcase/upcase!</li>
+	<li>downcase</li>
+	<li>swapcase</li>
+	<li>capitalize</li>
+	<li>strip</li>
+	<li>lstrip</li>
+	<li>rstrip</li>
+	<li>split("substring")</li>
+	<li>join("substring")</li>
 </ul>
-
-<br><br>
-If you have a long string, you may use below code:
-```
-str << keyword
-Any string
-Next line in the script automatically apply next line without enter \n
-keyword
-```
-Note that keyword can be anything, as long as you have included another keyword to place an identify the end of string
-
-<br><br>
-Alphabetically increasing strings can also be iterated in a proper pattern in range,<b>('aa'..'bb')</b> will be creating a range from <i>aa</i>, <i>ab</i>, <i>ac</i> ... <i>az</i>, <i>ba</i>, <i>bb</i>.
 
 
 ## Lesson 16: Date/Time
@@ -451,56 +352,8 @@ Useful standard package:
 	<li>Date</li>
 </ul>
 <br>
-Time in Ruby is the Unix epoch, time zero is at 1st of January, 1970 midnight. To access this, use <b>Time.at(0)</b> where 0 is the epoch. An time object may use below method to access the time instance:
-<ul>
-	<li>sec: Second</li>
-	<li>min: Minute</li>
-	<li>hour: Hour</li>
-	<li>day: Day</li>
-	<li>month: Month</li>
-	<li>year: Year</li>
-	<li>wday: Number of day of the week, 0 is Sunday, 6 is Saturday</li>
-	<li>yday: Number of day of the year</li>
-	<li>isdst: Is Daylight Saving Time, return true or false</li>
-	<li>t.zone: Time zone, return String</li>
-</ul>
-<br>
-Time is 32-bits, date range between 1901-2037. Datetime is 64-bits, date range effectively infinite, so it is able to handle calendar reform.
-<br>
-In Datetime, use <b>strptime(time_string, time_string_format)</b> to convert string to datetime object. Below table is the reference:
-<table>
-	<tr><th>Format</th><th>Description</th><th>Example</th></tr>
-	<tr><td>%A</td><td>Day of Week (Full Spelling)</td><td>Sunday</td></tr>
-	<tr><td>%a</td><td>Day of Week (Abbreviated)</td><td>Sun</td></tr>
-	<tr><td>%B</td><td>Month (Full Spelling)</td><td>October</td></tr>
-	<tr><td>%b</td><td>Month (Abbreviated)</td><td>Oct</td></tr>
-	<tr><td>%C</td><td>Century</td><td>20 (This is for 1900-1999)</td></tr>
-	<tr><td>%c</td><td>Default Format in Time package (Equal to %a %b %e %H:%M:%S %Y)</td><td>Sun Jun 13 23:23:01 2021</td></tr>
-	<tr><td>%D</td><td>American date format</td><td>06/12/21</td></tr>
-	<tr><td>%d</td><td>Day of the month</td><td>20</td></tr>
-	<tr><td>%F</td><td>%Y-%m-%d</td><td>2021-01-25</td></tr>
-	<tr><td>%H</td><td>Hour, 24-hour clock</td><td>23</td></tr>
-	<tr><td>%h</td><td>Month of the year (Abbreviated)</td><td>Oct</td></tr>
-	<tr><td>%I</td><td>Hour, 12-hour clock</td><td>11</td></tr>
-	<tr><td>%M</td><td>Minute of hour</td><td>59</td></tr>
-	<tr><td>%m</td><td>Month of year (Number)</td><td>11</td></tr>
-	<tr><td>%P</td><td>Lowercase meridian indicator (am or pm)</td><td>am</td></tr>
-	<tr><td>%p</td><td>Uppercase meridian indicator (AM or PM) </td><td>AM</td></tr>
-	<tr><td>%R</td><td>24-hour time format (%H:%M)</td><td>23:48</td></tr>
-	<tr><td>%r</td><td>12-hour time format (%I:%M:%S %p)</td><td>11:48:01 PM</td></tr>
-	<tr><td>%S</td><td>Second of the time</td><td>59</td></tr>
-	<tr><td>%s</td><td>Epoch</td><td>1136053353</td></tr>
-	<tr><td>%U</td><td>Week of year</td><td>52</td></tr>
-	<tr><td>%w</td><td>Day of the week, 0-6, Sunday is 0</td><td>0</td></tr>
-	<tr><td>%Y</td><td>Year</td><td>1995</td></tr>
-	<tr><td>%y</td><td>Year without century</td><td>95</td></tr>
-	<tr><td>%Z</td><td>Time Zone</td><td>GMT(Time)/ Z(Date)</td></tr>
-	<tr><td>%z</td><td>Time Zone in +/- numbers</td><td>+0000</td></tr>
-</table>
-<br>
-Multiple Date object is able to become a range object, or call <b>upto</b> on one Date object to create a range. Two Time object or Datetime objects may take a difference. But when subtracting two Datetime object, you have to convert to integer to print or use as a number.
+Time in Ruby is the Unix epoch, time zero is at 1st of January, 1970 midnight. To access this, use <b>Time.at(0)</b> where 0 is the epoch. In Datetime, use <b>strptime(time_string, time_string_format)</b> to convert string to datetime object. 
 
-Reference: <a href="https://www.rubyguides.com/2015/12/ruby-time/">here</a>
 
 ## Lesson 17: Numbers and Math
 File for this lesson: <i>num.rb</i>
