@@ -278,26 +278,9 @@ The try statement keywords are <b>begin</b> to try an code block, <b>rescue</b> 
 Hash is the Ruby version of dictionary in Python. File for this lesson: <i>try_hash.rb</i>
 <br>
 It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson12">Lesson 12 Folder</a>.
-<br>
-<br>
-```
-# Declare new empty hash
-mydict = Hash.new
+<br><br>
+Hash may be declare with <b>Hash.new</b> or <b>{}</b>, it is also the same structure with JSON format.
 
-# Hard code new hash with keys and value
-mydict = Hash["k1" => 1, "k2" => 2]
-
-# Add new key and values into hash
-mydict.store("k3", 3)
-# Or
-mydict["k3"] = 3
-
-# Obtain keys in array from hash
-keys_arr = mydict.keys
-
-# Obtain value of k1 from hash
-v1 = mydict['k1']
-```
 ## Lesson 13: Random
 File for this lesson: <i>try_random.rb</i>
 <br>
