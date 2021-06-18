@@ -44,7 +44,21 @@ Or use <b>reverse_each{}</b> to iterate reversely:
 ```
 arr.reverse_each{|elem| puts elem}
 ```
+Besides printing on console, you may use iteration to find summation or other math/statistics operations.
 
+### Sorting with non-default setting
+If you want to sort the array with non-default setting, ie, sorting a 2-D array with 2nd inner element in each outter element, you may use <b>sort_by{}</b>. For example:
+
+```
+arr = [[0,0],[1,9],[11,2]]
+arr = arr.sort_by{|elem| elem[1]} # Sort by each 2nd element in the array
+```
+<br>
+You may use the same method to shuffle an array by passing <b>rand</b> in <b>sort_by</b>:
+```
+arr = [1,2,3]
+arr.sort_by{rand}
+```
 
 ### Array Functions
 <ol>
@@ -77,6 +91,8 @@ arr = [1, 2, 3]
 arr1, arr2, arr3 = arr
 ```
 Then, arr1 is assigned to 1...etc.
+<br><br>
+Set operations may use <b>|</b> for union, <b>&</b> for intersection, and <b>- </b>for difference.
 
 ### Lazy method
 If you call <b>.lazy</b> method to array or hash, then it will become a <i>Enumerator</i> class and will not calculate until a method is called to the array object

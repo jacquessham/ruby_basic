@@ -114,7 +114,7 @@ It will add 1 to the end to arr
 Or to edit an element in an array, declare the new value to the array and its position, for example:
 <b>arr[0] = "apple"</b>
 <br>
-See the [Lesson 6 folder](/lesson6) for more functionality about array.
+See the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson6">Lesson 6 Folder</a> for more functionality about array.
 
 ## Lesson 7: Class
 File for this lesson: <i>use_class.rb</i>
