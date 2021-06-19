@@ -31,39 +31,7 @@ File for this lesson: <i>use_methods.rb</i>
 <br>
 It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson4">Lesson 4 Folder</a>.
 <br><br>
-Functions are called <b>Methods</b> in Ruby. The syntax starts by <b>def</b> and end with <b>end</b>, like below:
-
-```
-# Method with no parameter
-def method_no_para
-puts "This method has no parameter"
-end
-
-# Method with 1 parameter
-def method_1para(var1)
-puts var1
-end
-
-# Method with 2+ parameters, with default values
-def method_2para(var1=1, var2=2)
-puts "We have received #{var1} and #{var2}"
-end
-
-# Method to return object
-def method_return
-return 1
-end
-
-# Method to return more than 1 object
-def method_2returns
-i = 1
-j = 2
-return i,j
-end
-```
-
-<br><br>
-If you use <b>break</b> in the method, the method will stop immediately.
+A method begins with a keyword <b>def</b> like Python, following by method name, code block, and end with a keyword <b>end</b>
 
 ## Lesson 5: Loops & If-else Statement
 File for this lesson: <i>loops.rb</i>
@@ -119,95 +87,19 @@ See the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson6
 ## Lesson 7: Class
 File for this lesson: <i>use_class.rb</i>
 <br>
-It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson7">Lesson 7 Folder</a>.
-<br><br>
-This is how a class is defined:
-```
-class <class_name>
-	def initialize(<paramenters>) # Constructor
-		@<attribute> = <parameters>
-	end
-
-	# Setter + Getter
-	attr_accessor :<attribute>
-
-	# Class method
-	def method_name(<parameters>)
-		# Do something
-	end
-end
-```
-
-<br><br>
-Note: class attribute starts with <b>@</b> followed by attribute name
-<br>
-There are 3 ways to for setter/getter:
-<ul>
-	<li>Regular class method</li>
-	<li>attr_writer (For setter)/attr_reader (For getter)</li>
-	<li>attr_accessor (Syntax of setter and getter in one)</li>
-</ul>
-
-<br>
-
-This is how a subclass is defined:
-```
-class <subclass_name> < <class_name>
-	def initialize(<parameters>)
-		super # Pass all parameters to parent class method
-	end
-
-	# If subclass has a method with the same name, override parent class method
-	def method1
-		# Do something else
-	end
-
-	# If we have private before def, it become private method
-	private def method2
-		# Do something else
-	end
-end
-```
-
-<br><br>
-The function <b>super</b> comes with different syntax format:
-<ul>
-	<li><b>super</b> means passing all parameters to parent method</li>
-	<li><b>super(a)</b> means passing only a to parent method</li>
-	<li><b>super(a, b)</b> means passing both a and b to parent method</li>
-	<li><b>super()</b> means passing nothing to parent method</li>
-</ul>
-
-### use_class.rb
-This file has 1 parent class <b>Student</b>, along with 2 subclasses <b>Primary_school_student</b> and <b>Secondary_school_student</b>. The parent class consists of 3 attributes, <i>student_name</i>, <i>age</i>, and <i>gender</i> along with all setter and getter functions. It has two functions: <i>print_age</i> and <i>fruits</i>. <b>Primary_school_student</b> has a method to override <i>fruits</i> and <b>Secondary_school_student</b> has one to override <i>print_age</i>.
+The detail be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson7">Lesson 7 Folder</a>.
 
 ## Lesson 8: Inputs and Outputs
 Files for this lesson: <i>gets.rb</i> and <i>first_file.txt</i>.<br>
 In the end of the lesson, you will receive <i>second_file.txt</i>.
 <br>
-It can be found in the <a href="">Lesson 8 Folder</a>.
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson8">Lesson 8 Folder</a>.
 <br><br>
-Here is the code to ask users for input:
-```
-puts "Ask user for input"
-user_input = gets.chomp
-```
-
-<br>
 Use <b>gets</b> to receive input from users, <b>chomp</b> removes all separtors.
-<br><br>
-To open to read/write a file: <b>File.new(filename, mode)</b>
 <br>
 In read mode: <b>filename.sysread(n)</b> reads the first <b>n</b> characters in the file filename. <b>IO.readlines(filename)</b> reads all lines in filename and store all lines in string in an array. 
-<br><br>
+<br>
 In write mode: <b>filename.syswrite()</b> writes string in filename.
-<br><br>
-List of mode:
-<ul>
-	<li><b>r</b>: Read only</li>
-	<li><b>w</b>: Write, overwrite if exist a file</li>
-	<li><b>a</b>: Append to a file, if not exist, create a new file and write</li>
-</ul>
 
 ## Lesson 9: Loading and Saving Data for Specific Format (CSV, JSON)
 Files for this lesson: <i>gets_v2.rb</i>.<br>
@@ -215,43 +107,7 @@ In the end of the lesson, you will receive <i>numbers.csv</i> and <i>numbers.jso
 <br>
 It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson8">Lesson 9 Folder</a>.
 <br><br>
-Packages required:
-<ul>
-	<li>csv</li>
-	<li>json</li>
-</ul>
-<br><br>
-
-### CSV
-To read/write a csv file, in vanilla version, use <b>csv</b> gem. <b>CSV.read(filename)</b> will return a 2-D array of data from the csv file you read. To write a csv file, first prepare your data in arrays: Each array represent a row. Then, write the file with following code:
-
-```
-CSV.open(filename,"w") do |csv_file|
-	for i in # Some 2-D array
-		csv_file << i # i is an array with a 2-D array
-	end # End for loop
-end # Close csv
-
-```
-
-Each loop iteration will add a row to csv_file, and return csv_file to save in a physical CSV file.
-<br><br>
-Beside a physical CSV file, csv gem can also able to parse a csv style string, simply prepare a string with csv style parse it with <b>CSV.parse(# some string)</b> and it will return an 2-D array
-
-### JSON
-To read/write a json file, in vanilla version, use <b>json</b> gem. To read a JSON file, use <b>File.read(filename)</b> to declare a file object first. Then, parse the object with <b>JSON.parse(# file object)</b> and it will return a hash. To write a JSON file, first prepare the hash with data, then use <b>File.write(filename, JSON.dump(# some hash))</b> and it will generate a physical JSON file. If you want the JSON file indented properly, use <b>pretty_generate(# some hash)</b> to convert the string. The below code block demostrate how to write and read a JSON file:
-
-```
-# To write a JSON file, nums is a hash previous prepared
-File.write("numbers.json", JSON.dump(nums))
-# Or write the JSON file intented
-File.write("numbers_pretty.json", pretty_generate(nums))
-
-# To read numbers and parse it to a hash
-json_file = File.read("numbers.json")
-nums_dict = JSON.parse(json_file)
-
-````
+To do so, the gems <b>CSV</b> and <b>JSON</b>. Use <b>csv.read(filename)</b> to read csv lines and convert to an array. Likewise, use <b>File.read()</b> all string in a JSON file and use <b>JSON.parse()</b> to parse the string to a hash. Find more detail, like how to save CSV or JSON files in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson8">Lesson 9 Folder</a>.
 
 ## Lesson 10: Files and Folder Management
 Files for this lesson: <i>delete.rb</i>.
