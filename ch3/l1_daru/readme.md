@@ -1,9 +1,13 @@
 # Lesson 1: Daru
 
-Daru is a package in Ruby that is similar to Pandas in Python, it is a data analysis library. It allows you to create data frame with rows and columns and SQL-like functionalities to do analytical works in Ruby.
-
 ## Overview
-Coming Soon...
+Daru is a package in Ruby that is similar to Pandas in Python, it is a data analysis library. It allows you to create data frame with rows and columns and SQL-like functionalities to do analytical works in Ruby.
+<br><br>
+You may use below command to install:
+```
+gem install daru
+```
+
 
 ## Files
 This folder consists of the following files:
@@ -195,6 +199,9 @@ There are more operations you may use:
 
 <br><br>
 <b>.lag(n)</b> means taking entry n rows prior. For example, <b>df.lag(1)</b> means taking last row of entry for every row entry in df.
+
+## Program
+The script first declare a data frame with 2 columns. Then, it will filter the data frame with different conditions and perform different sorting. After that, it will read 2 csv files, <i>gf.csv</i> and <i>student.csv</i>, and converting to data frames to perform tables joining. In the last section, it will delcare another data frame to conduct simple aggregation to show the analytical abilities.
 
 ## Reference
 Andrew Kane's <i>Daru: Pandas for Ruby</i>, <a href="https://ankane.org/daru">https://ankane.org/daru</a>
