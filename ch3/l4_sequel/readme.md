@@ -78,3 +78,6 @@ You may use the placeholder to pass the conditional value into the query (Second
 ```
 db["select * from fund_price where ticker = ?", "AAPL"].all
 ```
+
+## Reference
+Reference Documentation <a href="https://sequel.jeremyevans.net/documentation.html">here</a>. 

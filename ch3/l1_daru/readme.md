@@ -12,10 +12,13 @@ gem install daru
 ## Files
 This folder consists of the following files:
 <ul>
-	<li>learn_ruby.rb</li>
+	<li>learn_daru.rb</li>
 	<li>studnets.csv</li>
 	<li>gf.csv</li>
 </ul>
+
+<br>
+The driver script <b>learn_daru.rb</b> requires the gem <b>daru</b> to perform analytical operations. It uses daru to read <i>studnets.csv</i> and <i>gf.csv</i> for one of the sections.
 
 ## DataFrame
 Data frame is the basic unit of object in Daru, to create a data frame, use this syntax:
