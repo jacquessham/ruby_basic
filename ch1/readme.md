@@ -105,9 +105,9 @@ In write mode: <b>filename.syswrite()</b> writes string in filename.
 Files for this lesson: <i>gets_v2.rb</i>.<br>
 In the end of the lesson, you will receive <i>numbers.csv</i> and <i>numbers.json</i>.
 <br>
-It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson8">Lesson 9 Folder</a>.
+It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson9">Lesson 9 Folder</a>.
 <br><br>
-To do so, the gems <b>CSV</b> and <b>JSON</b>. Use <b>csv.read(filename)</b> to read csv lines and convert to an array. Likewise, use <b>File.read()</b> all string in a JSON file and use <b>JSON.parse()</b> to parse the string to a hash. Find more detail, like how to save CSV or JSON files in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson8">Lesson 9 Folder</a>.
+To do so, the gems <b>CSV</b> and <b>JSON</b>. Use <b>csv.read(filename)</b> to read csv lines and convert to an array. Likewise, use <b>File.read()</b> all string in a JSON file and use <b>JSON.parse()</b> to parse the string to a hash. Find more detail, like how to save CSV or JSON files in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson9">Lesson 9 Folder</a>.
 
 ## Lesson 10: Files and Folder Management
 Files for this lesson: <i>delete.rb</i>.
