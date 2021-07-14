@@ -3,7 +3,7 @@
 Rover is another data analysis package in Ruby that is similar to Pandas in Python, created by <a href="https://github.com/ankane">Andrew Kane</a>.
 
 ## Files
-
+There is 1 file <i>learn_rover.rb</i> and depends on Rover. It will go over all functionalities mentioned in the folllowing section.
 
 ## Creating Data Frames
 Here are the ways to declare data frame:
@@ -99,12 +99,15 @@ To add columns without joins:
 df1.merge!(df2)
 ```
 <br>
+
 Union:
 ```
 df1.concat(df2)
 ```
+
 <br>
 Left join and Inner join
+
 ```
 # Left Join
 df1.left_join(df2, on: col1)
