@@ -78,6 +78,33 @@ You may use the placeholder to pass the conditional value into the query (Second
 ```
 db["select * from fund_price where ticker = ?", "AAPL"].all
 ```
+## Insert Rows
+To insert row, use <b>.insert()</b>, like this:
+```
+dataset = db[:fund_price]
+dataset.insert(:ticker => 'GLC', :pricedate => '2021/07/28', :nav => 34.45)
+```
+
+<br>
+You may insert more than 1 column and it only accept symbol and data pairs. The performance is not great, other tools to insert into database is more preferable.
+
+## Best Practice on Large Data Set
+When Sequel retreive data from database, it will retreive arrays of hashes. Each hash represents a row in the table, while it contains metadata like column name, data type along with the data. When the data is retreive with <b>.all()</b> it would break when the memory is used up too much. One solution is to retreive the data row by row using <b>.each()</b> and convert the table to an 2-D array to avoid stacking too much redundant metadata in memory, like below:
+```
+# Declare a new empty array
+data = []
+result = ds.select(:ticker, :pricedate, :nav)
+# Obtain the data in each row
+result.each do |row|
+	temp = [] # Build a temporary array for this row
+	temp << row[:ticker]
+	temp << row[:pricedate]
+	temp << row[:nav]
+	data << temp # Insert row back to data
+
+end
+```
+
 
 ## Reference
 Reference Documentation <a href="https://sequel.jeremyevans.net/documentation.html">here</a>. 
