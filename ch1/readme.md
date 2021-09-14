@@ -6,7 +6,10 @@ File for this lesson: <i>helloworld.rb</i>
 It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson1">Lesson 1 Folder</a>.
 <br><br>
 In Ruby, <b>puts</b> is the print statement. Same as <b>print</b> in Python. To print statement without next line, you may use <b>print </b>.
-
+<br><br>
+To execute your ruby script, simply run <b>ruby some_script.rb</b> in your command line. <i>Gemfile.lock</i> allows you to specify which gems to use in your scripts. In order to execute your script with your gemfiles, execute <b>bundle exec ruby <i>some_script.rb</i></b> in your command line. 
+<br><br>
+To import a package(gem) or another script, use the keyword <b>require</b> or <b>require_relative</b> to do so.
 
 ## Lesson 2: Declaring a Variable, Comment Blocks and BEGIN and END Statments
 File for this lesson: <i>begin_end.rb</i>
@@ -208,3 +211,4 @@ Useful standard package:
 </ul>
 <br>
 math is a standard library to support any kind of mathematically expression, including squart root, natural log...etc. mathn is a newer version, but rely on math, to handle more flexible situations, like return an integer when square rooting an integer (It is not supported in math). Matrices is supported under mathn. To check whether a integer is a prime number, use the Prime gem, its instances contains the prime numbers. Use <b>prime?</b> to check whether the number is a prime number.
+
