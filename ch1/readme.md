@@ -34,7 +34,16 @@ File for this lesson: <i>use_methods.rb</i>
 <br>
 It can be found in the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson4">Lesson 4 Folder</a>.
 <br><br>
-A method begins with a keyword <b>def</b> like Python, following by method name, code block, and end with a keyword <b>end</b>
+A method begins with a keyword <b>def</b> like Python, following by method name, code block, and end with a keyword <b>end</b>. An example is the following:
+
+```
+# Method with 1 parameter
+def method_1para(var1)
+puts var1
+end
+```
+
+Note: You may not restrict the parameter data type. Alternatively, you would have to examine the data type within the method and handle the type inconsistency.
 
 ## Lesson 5: Loops & If-else Statement
 File for this lesson: <i>loops.rb</i>

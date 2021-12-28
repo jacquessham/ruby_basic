@@ -33,6 +33,8 @@ end
 ```
 <br><br>
 If you use <b>break</b> in the method, the method will stop immediately. Note that the last line of the method will be return even if not stated purposefully.
+<br><br>
+\*\*Note: You may not restrict the parameter data type. Alternatively, you would have to examine the data type within the method and handle the type inconsistency.\*\*
 
 ## Files
 The scripts begin declaring 2 methods with no return object: one with 1 parameter with default value, and one with 2 parameters with default values. There are 2 methods declared afterward, one with 1 return object and one with 2 return objects. Then, the script will run those methods.
