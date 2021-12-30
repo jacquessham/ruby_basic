@@ -65,6 +65,8 @@ And will also going over in the lesson folder for the following function:
 	<li>If-else Statement</li>
 	<li>Case Statement</li>
 </ul>
+<br><br>
+Use && and || to represent "and" and "or" logic.
 
 
 ## Lesson 6: Array
