@@ -1,8 +1,9 @@
 # Lesson 5: Loops & If-else Statement
 File for this lesson: <i>loops.rb</i>
 <br>
-There are 4 kinds of loops in Ruby:
+There are 6 kinds of loops in Ruby:
 <ul>
+	<li>Each function</li>
 	<li>While Loop</li>
 	<li>For Loop</li>
 	<li>Do..while Loop</li>
@@ -16,6 +17,19 @@ And will also going over the following function:
 	<li>If-else Statement</li>
 	<li>Case Statement</li>
 </ul>
+
+## Each Function
+Each function is the most "native" syntax in Ruby.
+```
+# One line
+curr = [...]
+curr.each{|elem| (statement)} # You may operate anything with the bracket
+
+# Multiple lines
+curr.each do |elem|
+	(statement)
+end
+```
 
 ## While Loop
 ```
@@ -108,4 +122,4 @@ end
 The "And" and "Or" logics syntax are <b>\&\&</b> and <b>\|\|</b>
 
 ## Files
-In <i>loops.rb</i>, it will go over all loops mentioned above, along with if-statements. First, there are 2 while loops and print between 1-5 and 6-10. Then, it use while loop to print odd numbers between 1-10. After that, there is 2 for loops. The first for loop print whether the numbers between 1-10 are odd or even numbers; the second for loop print all string elements in an array. The next block is to print even numbers using do...while loops. After that, it uses a until loop to print numbers between 19-25. At last, it shows how to use a loop..do loops to print odd or even numbers using case statement.
+In <i>loops.rb</i>, it will go over all loops mentioned above, along with if-statements. First, there are 2 arrays and loop over with each functions, and there are 2 while loops and print between 1-5 and 6-10 followed after. Then, it use while loop to print odd numbers between 1-10. After that, there is 2 for loops. The first for loop print whether the numbers between 1-10 are odd or even numbers; the second for loop print all string elements in an array. The next block is to print even numbers using do...while loops. After that, it uses a until loop to print numbers between 19-25. At last, it shows how to use a loop..do loops to print odd or even numbers using case statement.

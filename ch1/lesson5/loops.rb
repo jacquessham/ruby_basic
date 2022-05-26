@@ -5,6 +5,19 @@ BEGIN{puts"This is Lesson 5, we are going over Loops and "+
 	      "If-else Statement in Ruby"}
 END{puts"This concludes Lesson 5"}
 
+# Each
+puts "We are executing a each function. We are printing numbers in an array"
+curr = Array(1..5)
+curr.each{|num| puts num}
+puts "------------------------------------"
+
+puts "And letters in an array"
+curr = Array('a'..'f')
+curr.each do |letter|
+	puts letter
+end
+puts "------------------------------------"
+
 # While Loops
 puts "We are executing a while loop. We are printing numbers between 0-5"
 curr = 0
