@@ -21,5 +21,17 @@ Note that <b>#{}</b> only works in a string with double quotation, it will not c
 <br><br>
 Using <b>'%.2f' % (variable)</b> is one of the ways to round decimals, similar to F-string in Python.
 
+## Supplement 1: Printing Arrays
+If you come from a Python background, beware that printing an array with <b>puts arr</b> will print an element on each line without any array syntax. If you wish to print an array with array syntax, you should convert the array to string like below:
+
+```
+arr = ["Orange","Apple","Strawberry"]
+puts arr.to_s
+```
+
 ## Files
+### printing.rb
 The script will first print statement with a string with <b>#{}</b> and compare the string without <b>#{}</b>. Then, it will experiment conducting math within <b>#{}</b> in a string.
+
+### printing_array.rb
+The script will print an array when you did not convert the array to string, and print one more time when you have converted the array to string.
