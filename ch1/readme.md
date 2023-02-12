@@ -95,7 +95,13 @@ It will add 1 to the end to arr
 <br><br>
 Or to edit an element in an array, declare the new value to the array and its position, for example:
 <b>arr[0] = "apple"</b>
-<br>
+<br><br>
+Array in Ruby is mutable like Java. If you wish to copy an array, you should use <b>.clone()</b> to make a copy.
+<br><br>
+You may use 0..5 to declare a range.
+<br><br>
+\*\*Note: Range in Ruby is inclusive
+
 See the <a href="https://github.com/jacquessham/ruby_basic/tree/main/ch1/lesson6">Lesson 6 Folder</a> for more functionality about array.
 
 ## Lesson 7: Class

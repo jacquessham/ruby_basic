@@ -13,6 +13,14 @@ These are the style of syntax to declare arrays in Ruby. Arrays are 0-based and 
 <br>
 Note: When using the w{} way to declare strings, you do not need to include quotations and commas, each whitespace is treated as a separator
 
+### Range
+Although Range itself is not an array, array functions similarly and it is useful in looping. You may use:
+
+```
+a = 0..5
+```
+in order to declare a range from 0 to 5, inclusively. When you iterate over a loop with index, you should remember to minus 1 from the array length.
+
 ### Selecting/AddingEditing elements
 There are a couple ways to select element(s) in an array:
 <ul>
@@ -93,6 +101,10 @@ arr1, arr2, arr3 = arr
 Then, arr1 is assigned to 1...etc.
 <br><br>
 Set operations may use <b>|</b> for union, <b>&</b> for intersection, and <b>- </b>for difference.
+
+### Copying an array
+Array in Ruby is mutable like Java. If you wish to copy an array, you should use <b>.clone()</b> to make a copy.
+
 
 ### Lazy method
 If you call <b>.lazy</b> method to array or hash, then it will become a <i>Enumerator</i> class and will not calculate until a method is called to the array object
