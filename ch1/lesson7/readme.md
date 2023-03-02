@@ -19,6 +19,17 @@ end
 ```
 <br><br>
 Note: class attribute starts with <b>@</b> followed by attribute name
+<br><br>
+If you wish to set nil as default parameter
+
+```
+class <class_name>
+	def initialize(<paramenters>=nil) # Constructor
+		@<attribute> = <parameters>
+	end
+end
+```
+
 <br>
 There are 3 ways to for setter/getter:
 <ul>
