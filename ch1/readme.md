@@ -67,7 +67,37 @@ And will also going over in the lesson folder for the following function:
 </ul>
 <br><br>
 Use && and || to represent "and" and "or" logic.
+<br>
+Loop Examples
 
+```
+# While Loop
+curr = 0
+while curr < 6 do
+	(statement)
+	curr += 1
+end
+
+# Foor Loop
+for n in 0..10 do
+	(statement)
+end
+```
+
+<br>
+If-else Statement Example
+
+```
+# If-else Statement
+if (condition) then (statement)
+elsif (condition) then(statement)
+else (statement)
+end
+
+# Unless Statement
+unless (condition) then (statement)
+else (statement) end
+```
 
 ## Lesson 6: Array
 File for this lesson: <i>use_array.rb</i>

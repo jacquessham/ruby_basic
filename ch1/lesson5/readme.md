@@ -44,6 +44,11 @@ while true do
 	curr += 1
 	break if curr > 10
 end
+
+# While loop when variable is not nil
+while !node.nil?
+	node = node.left
+end # end while
 ```
 
 ## For Loop
